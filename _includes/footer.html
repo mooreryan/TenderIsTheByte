@@ -1,0 +1,30 @@
+<footer>
+    <ul class="no-bullets">
+        <li>
+            <a class="nav_link"
+               href="https://twitter.com/{{ site.author.twitter | cgi_escape | escape }}"
+               title="Follow me on Twitter">
+                Twitter
+            </a>
+        </li>
+        <li class="nav_item">
+            <a class="nav_link"
+               href="https://github.com/{{ site.author.github | cgi_escape | escape }}"
+               title="Check out my projects on GitHub">
+                GitHub
+            </a>
+        </li>
+        <li class="nav_item">
+            <a class="nav_link"
+               href="mailto:{{ site.author.email | cgi_escape | escape }}"
+               title="Email me directly">Email</a></li>
+    </ul>
+
+    <p>
+        {{ site.copyright }}. This work is licensed under a
+        <a rel="license"
+           href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License
+        </a>.
+    </p>
+</footer>

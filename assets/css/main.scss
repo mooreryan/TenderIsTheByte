@@ -1,0 +1,30 @@
+---
+---
+
+@import "fonts";
+@import "syntax_highlighting";
+@import "normalize";
+@import "skeleton";
+@import "colors";
+@import "base";
+@import "bio";
+@import "post";
+
+.container {
+  margin-top: 5%;
+  max-width: 700px;
+}
+
+
+.no-bullets {
+  list-style-type: none;
+}
+
+.site-header {
+  margin-bottom: 1.5rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}

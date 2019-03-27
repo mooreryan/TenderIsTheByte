@@ -1,0 +1,21 @@
+<div class="row bio">
+    <div class="two columns bio-pic">
+        <picture>
+            <img
+                 height="100px"
+                 width="100px"
+                 alt="Ryan's profile pic"
+                 src="{{ "/assets/img/profile_pic_100_100.jpg" | relative_path }}" >
+        </picture>
+    </div>
+
+    <div class="seven columns bio-text">
+        <p>
+            Hi! I'm {{ site.author.name }}, NBA fan & PhD candidate in Eric Wommack's
+            viral ecology lab @ UD. <a
+                href="https://www.twitter.com/{{ site.author.twitter | cgi_escape | escape }}">Follow
+            me on Twitter!</a>
+        </p>
+
+    </div>
+</div>

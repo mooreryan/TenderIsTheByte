@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<article>
+    <header>
+        <h1 class="post-title">{{ page.title | escape }}</h1>
+        <p>
+            <time class="post-date">
+                {{ page.date | date: "%b %e, %Y" }}
+            </time>
+        </p>
+    </header>
+
+    <div>
+        {{ content }}
+    </div>
+
+    <div>
+        <hr width="10%">
+        <p>
+            If you enjoyed this post, consider sharing it on <a href="https://twitter.com/{{ site.author.twitter | cgi_escape | escape }}">Twitter</a>!  If you have questions or comments, get in touch with me on <a href="https://twitter.com/{{ site.author.twitter | cgi_escape | escape }}">Twitter</a> or <a href="mailto:{{ site.author.email | cgi_escape | escape }}">send me an email</a> directly.
+        </p>
+
+        <a href="/">← Go back</a>
+    </div>
+
+</article>
