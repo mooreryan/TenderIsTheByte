@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Tender Is The Byte
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- # this means to ignore newlines the next tag
   Hi!  I'm Ryan Moore, NBA fan & PhD candidate in Eric Wommack's viral ecology lab @ UD.
 url: https://www.TenderIsTheByte.com # the base hostname & protocol for your site, e.g. http://example.com
 author:
@@ -23,7 +23,7 @@ author:
   name: Ryan Moore
   email: moorer@udel.edu
 twitter:
-  username: TenderIsTheByte
+  username: ViralEcology
   card: summary
 logo: assets/img/favicon/favicon-196x196.png
 social:
@@ -74,8 +74,8 @@ header_pages:
 
 # I want the sass partials in the assets folder so need to tell Jekyll about that.
 sass:
-    sass_dir: assets/_sass
-    style: compressed
+  sass_dir: assets/_sass
+  style: compressed
 
 permalink: /:categories/:year/:month/:day/:title/
 
@@ -85,3 +85,7 @@ collections:
   apps:
     output: true
     permalink: /:collection/:title
+
+# Variables for folders and such
+dir:
+  post_img: /assets/img/posts

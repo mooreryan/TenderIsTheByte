@@ -48,3 +48,35 @@ nav {
   padding-left: 20px;
   text-align: right;
 }
+
+.figure {
+    display: inline-block;
+
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 2em;
+    margin-left: auto;
+
+    text-align: center;
+}
+
+.figure--center {
+  width: 100%;
+}
+
+.figure figcaption {
+  font-style: italic;
+  color: $gray;
+}
+
+.highlight pre {
+  background-color: $secondary-color-transparent;
+  border: 1px solid $secondary-color;
+  border-radius: 4px;
+}
+
+.highlighter-rouge {
+  color: $secondary-color-dark;
+  border: 1px solid $secondary-color;
+  border-radius: 4px;
+}

@@ -17,9 +17,8 @@ layout: default
 
     <div>
         <hr width="10%">
-        <p>
-            If you enjoyed this post, consider sharing it on <a href="https://twitter.com/{{ site.author.twitter | cgi_escape | escape }}">Twitter</a>!  If you have questions or comments, get in touch with me on <a href="https://twitter.com/{{ site.author.twitter | cgi_escape | escape }}">Twitter</a> or <a href="mailto:{{ site.author.email | cgi_escape | escape }}">send me an email</a> directly.
-        </p>
+
+        {% include call_to_action.html %}
 
         <a href="/">← Go back</a>
     </div>
