@@ -6,6 +6,22 @@ body {
   border-right: 2px solid $secondary-color;
 }
 
+/* 
+  Larger than phablet (also point when grid becomes active) 
+
+  There is currently not enough text on the home page to get 
+  the border all the way to the bottom and 100% html height 
+  looks wonky on when scrolling.  So just turn them off for 
+  larger screens.
+*/
+@media (min-width: 550px) {
+  body {
+    border-left: none;
+    border-right: none;
+  }
+}
+
+
 blockquote {
   color: $gray;
   border-left: 4px solid $primary-color;
