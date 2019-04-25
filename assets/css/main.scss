@@ -11,7 +11,7 @@
 @import "post";
 
 .container {
-  margin-top: 5%;
+  padding-top: 5%;
   max-width: 700px;
 }
 
@@ -83,14 +83,4 @@ nav {
   color: $secondary-color-dark;
   border: 1px solid $secondary-color;
   border-radius: 4px;
-}
-
-blockquote {
-  color: $gray;
-  border-left: 4px solid $primary-color;
-  padding-left: 1em;
-}
-
-h3 a {
-  font-style: normal;
 }

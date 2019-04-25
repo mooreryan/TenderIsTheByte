@@ -1,6 +1,19 @@
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   font-family: "Raleway", sans-serif;
   color: $black;
+  border-left: 2px solid $primary-color;
+  border-right: 2px solid $secondary-color;
+}
+
+blockquote {
+  color: $gray;
+  border-left: 4px solid $primary-color;
+  padding-left: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -9,6 +22,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h3 {
   font-style: italic;
+}
+
+h3 a {
+  font-style: normal;
 }
 
 code {
