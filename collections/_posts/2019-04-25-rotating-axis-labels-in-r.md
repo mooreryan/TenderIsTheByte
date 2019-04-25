@@ -265,6 +265,12 @@ dat <- list("Cool dataset one"   = rnorm(100, 0),
             "Another long name"  = rnorm(100, 5),
             "Really really long" = rnorm(100, 4))
 
+## Adjust some graphical parameters.
+par(mar = c(6.1, 4.1, 4.1, 4.1), # change the margins
+    lwd = 2, # increase the line thickness
+    cex.axis = 1.2 # increase default axis label size
+    )
+
 ## Draw boxplot with no axes.
 boxplot(dat, xaxt = "n", yaxt = "n")
 
