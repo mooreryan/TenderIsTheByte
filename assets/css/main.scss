@@ -80,3 +80,9 @@ nav {
   border: 1px solid $secondary-color;
   border-radius: 4px;
 }
+
+blockquote {
+  color: $gray;
+  border-left: 4px solid $primary-color;
+  padding-left: 1em;
+}
