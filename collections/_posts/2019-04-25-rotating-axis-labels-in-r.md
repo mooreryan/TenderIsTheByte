@@ -3,7 +3,7 @@ layout: post
 title: "Rotating axis labels in R plots"
 description: A detailed look at how to rotate axis labels in base R plots.
 categories: blog
-image: "/assets/img/posts/r_axis_label_rotation/boxplot_srt_adj_sweep.gif"
+image: "/assets/img/posts/r_axis_label_rotation/boxplot_final.png"
 ---
 Sometimes you have a plot with axis labels that are too long and end up getting clipped or dropped from the figure.  Maybe something like this:
 
