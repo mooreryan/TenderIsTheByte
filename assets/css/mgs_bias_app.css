@@ -1,0 +1,12 @@
+table {
+  table-layout: auto;
+  width: 50px;
+}
+
+input[type="text"] {
+  width: 50px;
+}
+
+.container {
+    max-width: 960px;
+}
