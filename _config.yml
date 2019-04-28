@@ -18,18 +18,18 @@ description: >- # this means to ignore newlines the next tag
   Hi!  I'm Ryan Moore, NBA fan & PhD candidate in Eric Wommack's viral ecology lab @ UD.
 url: https://www.TenderIsTheByte.com # the base hostname & protocol for your site, e.g. http://example.com
 author:
-  twitter: ViralEcology
+  twitter: TenderIsTheByte
   github: mooreryan
   name: Ryan Moore
   email: moorer@udel.edu
 twitter:
-  username: ViralEcology
+  username: TenderIsTheByte
   card: summary
 logo: assets/img/favicon/favicon-196x196.png
 social:
   name: Ryan Moore
   links:
-    - https://twitter.com/ViralEcology
+    - https://twitter.com/TenderIsTheByte
     - https://github.com/mooreryan
 
 copyright: © Ryan Moore, 2019
