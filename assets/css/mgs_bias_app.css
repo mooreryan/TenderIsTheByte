@@ -10,3 +10,7 @@ input[type="text"] {
 .container {
     max-width: 960px;
 }
+
+body {
+    border-right: none;
+}

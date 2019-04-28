@@ -71,6 +71,7 @@ exclude:
 # Pages to include in the nav bar
 header_pages:
   - about.md
+  - apps.md
 
 # I want the sass partials in the assets folder so need to tell Jekyll about that.
 sass:
@@ -89,3 +90,8 @@ collections:
 # Variables for folders and such
 dir:
   post_img: /assets/img/posts
+  apps: /apps
+
+# List of apps
+apps:
+  - mgs_bias
