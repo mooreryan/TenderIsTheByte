@@ -42,7 +42,7 @@ We can fix both problems by [rotating the axis labels](https://cran.r-project.or
 
 ## Remove the original axes
 
-Because the `plot` function doesn't provide a way to rotate axis labels, we need to remove the entire axis and redraw it ourselves.  We can tell plotting functions like `plot` and `boxplot` to suppress axes by passing in `xaxt = "n"` to turn off the x-axis and `yaxt = "n"` to turn of the y-axis.
+Because the `plot` function doesn't provide a way to rotate axis labels, we need to remove the entire axis and redraw it ourselves.  We can tell plotting functions like `plot` and `boxplot` to suppress axes by passing in `xaxt = "n"` to turn off the x-axis and `yaxt = "n"` to turn off the y-axis.
 
 {% highlight r %}
 {% raw %}
