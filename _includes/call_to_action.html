@@ -1,9 +1,17 @@
 <p>
+    {% if page.twitter_share %}
+    If you enjoyed this post, consider
+    <a title="Share on Twitter!" href="{{ page.twitter_share }}">
+        sharing it on Twitter
+    </a>
+    and subscribing to the <a title="Subscribe to the RSS feed!" href="{{ "/feed.xml" | relative_url }}">RSS feed</a>!
+    {% else %}
     If you enjoyed this post, consider sharing it on
     <a title="Open my Twitter profile" href="https://twitter.com/{{ site.author.twitter | cgi_escape | escape }}">
         Twitter
     </a>
     and subscribing to the <a title="Subscribe to the RSS feed!" href="{{ "/feed.xml" | relative_url }}">RSS feed</a>!
+    {% endif %}
 
     If you have questions or comments, you can find me on
     <a title="Open my Twitter profile" href="https://twitter.com/{{ site.author.twitter | cgi_escape | escape }}">
