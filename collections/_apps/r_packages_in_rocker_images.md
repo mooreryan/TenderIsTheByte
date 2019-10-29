@@ -8,7 +8,9 @@ image: "/assets/img/apps/todo.png"
 
 # R Packages Included in Rocker Version-Stable Docker Images
 
-[Rocker](https://www.rocker-project.org) [version-stable Docker images](https://hub.docker.com/r/rocker/r-ver) come preloaded with a variety of R packages.  I wasn't able to find a listing of all the R packages that are installed in the various Rocker images, so I made this little app with all the info!  Try out the search box by typing `tidyverse 3.6.1` to see all of the packages installed in the [tidyverse:3.6.1](https://hub.docker.com/r/rocker/tidyverse) image!  Alternatively, you can filter by image, tag, package, and version using the dropdown boxes at the bottom of the table.
+[Rocker](https://www.rocker-project.org) [version-stable Docker images](https://hub.docker.com/r/rocker/r-ver) come preloaded with a variety of R packages.  I wasn't able to find a listing of all the R packages that are installed in the various Rocker images, so I made this little app!  It includes all of the installed R packages in the [r-ver](https://hub.docker.com/r/rocker/r-ver), [rstudio](https://hub.docker.com/r/rocker/rstudio), [tidyverse](https://hub.docker.com/r/rocker/tidyverse), and [verse](https://hub.docker.com/r/rocker/verse) images, versions `3.4.0` to `3.6.1`!  
+
+Try out the search box by typing `tidyverse 3.6.1` to see all of the packages installed in the [tidyverse:3.6.1](https://hub.docker.com/r/rocker/tidyverse) image!  Alternatively, you can filter by image, tag, package, and version using the dropdown boxes at the bottom of the table.
 
 *The table may take a few seconds to load....*
     
