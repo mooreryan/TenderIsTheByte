@@ -3,7 +3,7 @@ layout: default
 title: R Packages Included in Rocker Version-Stable Docker Images
 description: Rocker version-stable Docker images come preloaded with a variety of R packages.  Check out this app to explore which packages are included in the various Rocker images.
 categories: app
-image: "/assets/img/apps/todo.png"
+twitter_share: https://ctt.ac/Db7M0
 ---
 
 # R Packages Included in Rocker Version-Stable Docker Images
@@ -87,3 +87,11 @@ Try out the search box by typing `tidyverse 3.6.1` to see all of the packages in
 </table>
 
 *To get the installed packages, I pulled a fresh version of each of the images on 2019-10-29.*
+
+<div>
+    <hr width="10%">
+
+    {% include call_to_action.html %}
+
+    <a href="/">← Go back</a>
+</div>
