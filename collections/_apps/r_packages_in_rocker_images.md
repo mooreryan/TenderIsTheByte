@@ -3,6 +3,7 @@ layout: default
 title: R Packages Included in Rocker Version-Stable Docker Images
 description: Rocker version-stable Docker images come preloaded with a variety of R packages.  Check out this app to explore which packages are included in the various Rocker images.
 categories: app
+image: "/assets/img/favicon/favicon-196x196.png"
 twitter_share: https://ctt.ac/Db7M0
 ---
 
