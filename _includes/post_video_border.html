@@ -1,0 +1,14 @@
+<div class="figure figure--center figure--border">
+    <!-- <video width="100%">
+        <source src="{{site.dir.post_img }}/{{ include.path | relative_url }}" type="video/mp4">
+    </video> -->
+
+    <video style="margin-top: 2%; outline: none;" width="96%" controls loop>
+        <source src="{{site.dir.post_img }}/{{ include.path | relative_url }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+
+    <!-- <img src="{{site.dir.post_img }}/{{ include.path | relative_url }}" alt="{{ include.caption }}"> -->
+    <figcaption>{{ include.caption }}</figcaption>
+</div>
