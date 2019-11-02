@@ -8,5 +8,3 @@ title: About
 Hi!  I'm Ryan Moore, NBA fan and PhD candidate in Eric Wommack's viral ecology lab at the University of Delaware.
 
 I love programming, ecology, and NBA stats!
-
-Click [here](/assets/files/ryan_moore_cv_2019_05_30.pdf) to check out my CV!
