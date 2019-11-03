@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Notes from the Messyverse:  How to tidy nested lists"
-description: You've got nested lists.  In fact, you've got lists of nested lists, but ggplot wants data frames or tibbles.  Have no fear, this post will show you how to tidy up your nested lists!
+title: "Notes from the Messyverse:  How to tidy nested lists in R"
+description: You've got nested lists in R.  In fact, you've got lists of nested lists, but ggplot wants data frames or tibbles.  Have no fear, this post will show you how to tidy up your nested lists by converting them to data frames!
 categories: blog
 image: "/assets/img/posts/tidying_nested_lists/emacs_watermelon_data_11.jpg"
 twitter_share: https://ctt.ac/Q59Rg
