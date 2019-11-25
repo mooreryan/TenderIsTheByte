@@ -66,3 +66,20 @@ a:active {
 .gray {
   color: $gray;
 }
+
+ol, ul {
+  display: block;
+  padding-left: 1em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+
+  li {
+    margin-bottom: 0rem;
+  }
+} 
+
+ul {
+  list-style: disc outside;
+}
