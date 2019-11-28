@@ -34,9 +34,9 @@ This competiteve advantage is one potential explanation for the widespread distr
 Overall, a really cool study with some interesting results that I definitely encourge you to check out!
 
 {:.gray}
-*Citation:  Feyereisen, M. et al. Biodiversity and Classification of Phages Infecting Lactobacillus brevis. Frontiers in Microbiology 10, 2396 (2019). [doi: 10.3389/fmicb.2019.02396](https://doi.org/10.3389/fmicb.2019.02396).*
+*Citation:  Oh, J.-H. et al. Prophages in Lactobacillus reuteri are associated with fitness trade-offs but can increase competitiveness in the gut ecosystem. Appl. Environ. Microbiol. AEM.01922-19 (2019). [doi: 10.1128/AEM.01922-19](https://doi.org/10.1128/AEM.01922-19).*
 
-## Prophages *in Lactobacillus brevis*
+## Prophages in *Lactobacillus brevis*
 
 Another recent study also looked at prophages of Lactobacillus:  [Biodiversity and Classification of Phages Infecting Lactobacillus brevis](https://doi.org/10.3389/fmicb.2019.02396) (publishd by Feyereisen and collegues in [Fronteirs in Microbiology](https://www.frontiersin.org/journals/310), Oct. 2019).  Whereas the previous study focused on phages of *Lactobacillus reuteri*, this one focused on phages of *Lactobacillus brevis*.  *L. brevis* is particularly well known for its ability to [grow and survive in beer](https://doi.org/10.1002/j.2050-0416.2006.tb00247.x), leading to spoilage.
 
@@ -55,4 +55,4 @@ The authors set up a classification scheme for *L. brevis* phages based on morph
 This is a nice paper to study if you are interested in looking at prophages in your favorite genomes or systems.  They provide a pretty good model to follow for identifying, characterizing, and classifying phages and prophages from particular organisms.  Check it out!
 
 {:.gray}
-*Citation:  Oh, J.-H. et al. Prophages in Lactobacillus reuteri are associated with fitness trade-offs but can increase competitiveness in the gut ecosystem. Appl. Environ. Microbiol. AEM.01922-19 (2019). [doi: 10.1128/AEM.01922-19](https://doi.org/10.1128/AEM.01922-19).*
+*Citation:  Feyereisen, M. et al. Biodiversity and Classification of Phages Infecting Lactobacillus brevis. Frontiers in Microbiology 10, 2396 (2019). [doi: 10.3389/fmicb.2019.02396](https://doi.org/10.3389/fmicb.2019.02396).*
