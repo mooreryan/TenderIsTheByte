@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Using Sass in Clojure Ring apps"
+author: ryan
 description: So you want to use Sass instead of plain CSS in your Clojure Ring web app, but you're not sure how to get it set up?  No problem!  Let's walk through it together.
 categories: blog
 image: "/assets/img/posts/sass_clojure_ring_apps/sass-plus-clojure.png"

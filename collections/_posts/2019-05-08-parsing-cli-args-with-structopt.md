@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Learn Rust: Parsing command line arguments with StructOpt"
+author: ryan
 description: A beginners guide to using StructOpt for parsing command line arguments.
 categories: blog
 image: "/assets/img/posts/learn_rust_cli_args/learn_rust_cli_args.png"

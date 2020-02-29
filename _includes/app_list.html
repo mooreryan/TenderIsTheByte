@@ -1,0 +1,16 @@
+{% if site.apps.size > 0 %}
+<h2>Apps</h2>
+
+{% for app in site.apps %}
+<h3 class="post-link">
+    <a href="{{ app.url | relative_url }}" title="{{ app.title | escape }}">
+        {{ app.title | escape }}
+    </a>
+</h3>
+
+{% if app.description %}
+<p>{{ app.description }}</p>
+{% endif %}
+{% endfor %}
+
+{% endif %}

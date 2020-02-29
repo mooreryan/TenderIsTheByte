@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Running MMseqs2 on CPUs with SSE4.1 or AVX2 instruction sets"
+author: ryan
 description: MMseqs2, a program for searching and clustering proteins, requires a CPU with either AVX2 or SSE4.1 to run.  In this post, we walk through writing a script to automatically determine the instruction set on your computer and run the correct version of MMseqs2.
 categories: blog
 twitter_share: https://ctt.ac/AVJxt

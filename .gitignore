@@ -7,3 +7,6 @@ build_exclude
 .DS_store
 .netlify
 *.idraw
+
+collections/_drafts
+assets/img/posts/docker_for_reproducible_science

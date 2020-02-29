@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Rotating axis labels in R plots"
+author: ryan
 description: A detailed look at how to rotate axis labels in base R plots.
 categories: blog
 image: "/assets/img/posts/r_axis_label_rotation/boxplot_final.png"

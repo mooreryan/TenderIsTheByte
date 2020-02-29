@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Beginning Bioinformatics:  What's a terminal?  What's the command line?"
+author: ryan
 description: If you're new to bioinformatics and just getting started, you're going to need to learn a lot of background info before you can really get started analyzing your data.  In this post, we go back to the basics talking about terminals and the command line.
 categories: blog
 image: "/assets/img/posts/command_line_terminal/find-cli.png"

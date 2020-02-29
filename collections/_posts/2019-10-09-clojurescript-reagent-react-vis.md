@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Making charts with ClojureScript, Reagent, and React-vis"
+author: ryan
 description: An introduction to making sweet charts with ClojureScript, Reagent, and React-Vis!
 categories: blog
 image: "/assets/img/posts/cljs_reagent_react_vis/final-chart.png"

@@ -32,7 +32,7 @@ social:
     - https://twitter.com/TenderIsTheByte
     - https://github.com/mooreryan
 
-copyright: © Ryan Moore, 2019
+copyright: © Ryan Moore, 2019-2020
 baseurl: "" # the subpath of your site, e.g. /blog
 
 # Treat images as if they had image: true in the front matter
@@ -91,7 +91,3 @@ collections:
 dir:
   post_img: /assets/img/posts
   apps: /apps
-
-# List of apps
-apps:
-  - mgs_bias

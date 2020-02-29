@@ -5,6 +5,10 @@ title: About
 
 # {{ page.title }}
 
-Hi!  I'm Ryan Moore, NBA fan and PhD candidate in Eric Wommack's viral ecology lab at the University of Delaware.
+Welcome to Tender Is The Byte, a blog about programming, research, ecology, and more!
 
-I love programming, ecology, and NBA stats!
+## Authors
+
+{% for author in site.data.authors.all %}
+{% include bio.html author=author.id %}
+{% endfor %}

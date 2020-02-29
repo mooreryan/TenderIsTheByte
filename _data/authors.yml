@@ -1,0 +1,17 @@
+all:
+  - id: ryan
+  - id: amelia
+  
+# Author details
+amelia:
+  name: Amelia Harrision
+  avatar: /assets/img/avatars/amelia_100_100.jpg
+  bio: Pokémon master & Research Assitant in Eric Wommack's viral ecology lab @ UD
+  twitter: AmeliaOmelia
+
+ryan:
+  name: Ryan Moore
+  avatar: /assets/img/avatars/ryan_100_100.jpg
+  bio: NBA fan & PhD candidate in Eric Wommack's viral ecology lab @ UD
+  twitter: TenderIsTheByte
+

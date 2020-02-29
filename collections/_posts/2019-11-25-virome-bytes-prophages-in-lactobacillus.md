@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Virome Bytes:  Prophages in Lactobacillus"
+author: ryan
 description: In today's edition of Virome Bytes, I talk about a couple of new papers looking at prophages in Lactobacillus!
 categories: blog
 image: "/assets/img/posts/lactobacillus_prophages/morphotype_3_phages.jpeg"

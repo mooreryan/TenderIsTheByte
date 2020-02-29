@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spell Checking in Emacs"
+author: ryan
 description: Super simple guide to setting up spell checking in Emacs.
 categories: blog
 image: "/assets/img/posts/spell_checking_emacs/emacs_flyspell_example_100.png"

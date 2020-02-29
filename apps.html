@@ -4,7 +4,7 @@ title: Apps
 ---
 
 <div class="apps-page">
-    <h1>Apps and other fun stuff</h1>
+    <h1>Tender Is The Byte</h1>
 
     <p>I like making stuff! Here, you can find a listing of some apps and other fun things that I've made. For a whole
         lot more,
@@ -12,18 +12,7 @@ title: Apps
         out my <a class="nav_link" href="https://github.com/{{ site.author.github | cgi_escape | escape }}"
             title="Check out my projects on GitHub">
             GitHub
-        </a>.</p>
+        </a> page.</p>
 
-    {% for app in site.apps %}
-    <h3 class="post-link">
-        <a href="{{ app.url | relative_url }}" title="{{ app.title | escape }}">
-            {{ app.title | escape }}
-        </a>
-    </h3>
-
-    {% if app.description %}
-    <p>{{ app.description }}</p>
-    {% endif %}
-
-    {% endfor %}
+    {% include app_list.html %}
 </div>
