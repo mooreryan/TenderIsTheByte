@@ -4,8 +4,8 @@ title: "Virome Bytes:  Microdiversity of Mediterranean Sea Viruses"
 author: amelia
 description: In today's edition of Virome Bytes, Amelia Harrison discusses a paper looking at the microdiversity of Mediterranean Sea viruses!
 categories: blog
-image: "/assets/img/posts/lactobacillus_prophages/TODO.jpeg"
-twitter_share: TODO
+image: "/assets/img/posts/mediterranean_virus_microdiversity/microdiversity_cartoon.jpg"
+twitter_share: https://ctt.ac/Dc495
 ---
 
 ## Virus microdiversity
