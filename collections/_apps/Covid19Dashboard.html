@@ -80,24 +80,26 @@ image: "/assets/img/apps/delaware_covid_chart.png"
 <body>
     <div id="app"></div>
     <script>
-        var storedData = localStorage.getItem("data");
-        var startingData = storedData ? JSON.parse(storedData) : null;
+        var hasLocalStorage = true;
+        var ls, storedData, startingData;
+        try {
+            ls = window.localStorage;
+            storedData = ls.getItem("data");
+            startingData = storedData ? JSON.parse(storedData) : null;
+        } catch (e) {
+            console.warn("could not use localStorage!")
+            hasLocalStorage = false;
+            startingData = null;
+        }
 
         var app = Elm.Main.init({
             node: document.getElementById("app"),
             flags: {
+                hasLocalStorage: hasLocalStorage,
                 startingData: startingData,
                 windowWidth: window.innerWidth,
                 windowHeight: window.innerHeight
             },
-        });
-
-        // TODO handle data save failure.
-        app.ports.storeData.subscribe(function(data) {
-            if (data.length > 0) {
-                var dataJson = JSON.stringify(data);
-                localStorage.setItem("data", dataJson);
-            }
         });
 
         var requestAnimationFrame =
@@ -107,23 +109,39 @@ image: "/assets/img/apps/delaware_covid_chart.png"
             window.msRequestAnimationFrame;
 
         let updateChart = function(spec) {
-            // console.log(spec);
             requestAnimationFrame(function() {
-                vegaEmbed("#case-count-chart", spec, {
-                    actions: {
-                        export: true,
-                        source: false,
-                        compiled: false,
-                        editor: false
-                    },
-                    renderer: "canvas"
-                }).catch(
-                    console.warn
-                );
+                // TODO first check if case-count-chart exists
+                if (document.getElementById("case-count-chart")) {
+                    vegaEmbed("#case-count-chart", spec, {
+                        actions: {
+                            export: true,
+                            source: false,
+                            compiled: false,
+                            editor: false
+                        },
+                        renderer: "canvas"
+                    }).catch(
+                        console.warn
+                    );
+
+                }
             });
         };
 
         app.ports.sendToVegaLite.subscribe(updateChart);
+
+        if (hasLocalStorage) {
+            app.ports.storeData.subscribe(function(data) {
+                if (data.length > 0) {
+                    var dataJson = JSON.stringify(data);
+                    try {
+                        ls.setItem("data", dataJson);
+                    } catch (e) {
+                        console.warn("could not save data to localStorage!");
+                    }
+                }
+            });
+        }
     </script>
 </body>
 
