@@ -1,0 +1,130 @@
+---
+layout: null
+title: COVID-19 Dashboard
+description: Track and compare COVID-19 confirmed cases across US counties.
+categories: app
+image: "/assets/img/apps/delaware_covid_chart.png"
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% if jekyll.environment == 'production' %} 
+    {% include analytics.html %} 
+    {% endif %}
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css" />
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+
+    <style>
+        body {
+            margin-left: 1em;
+            color: #333333;
+        }
+        
+        html,
+        button,
+        input,
+        select,
+        textarea,
+        .pure-g [class*="pure-u"] {
+            /* Set your content font stack here: */
+            font-family: Verdana, Arial, sans-serif;
+        }
+        
+        .button-margin {
+            margin-top: 1em;
+            margin-right: 0.5em;
+            margin-bottom: 1em;
+        }
+        
+        .small-font {
+            font-size: 0.75em;
+        }
+        
+        .gray-font {
+            color: #666666
+        }
+        
+        .push-down {
+            margin-top: 0.67em;
+        }
+    </style>
+
+    <script src="/assets/js/CovidDashboard.min.js"></script>
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ " /assets/img/favicon/apple-touch-icon-57x57.png " | absolute_path }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ " /assets/img/favicon/apple-touch-icon-114x114.png " | absolute_path }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ " /assets/img/favicon/apple-touch-icon-72x72.png " | absolute_path }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ " /assets/img/favicon/apple-touch-icon-144x144.png " | absolute_path }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ " /assets/img/favicon/apple-touch-icon-120x120.png " | absolute_path }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ " /assets/img/favicon/apple-touch-icon-152x152.png " | absolute_path }}" />
+    <link rel="icon" type="image/png" href="{{ " /assets/img/favicon/favicon-32x32.png " | absolute_path }}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ " /assets/img/favicon/favicon-16x16.png " | absolute_path }}" sizes="16x16" />
+    <meta name="application-name" content="Tender Is The Byte" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="{{ " /assets/img/favicon/mstile-144x144.png " | absolute_path }}" /> {% seo %}
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        var storedData = localStorage.getItem("data");
+        var startingData = storedData ? JSON.parse(storedData) : null;
+
+        var app = Elm.Main.init({
+            node: document.getElementById("app"),
+            flags: {
+                startingData: startingData,
+                windowWidth: window.innerWidth,
+                windowHeight: window.innerHeight
+            },
+        });
+
+        // TODO handle data save failure.
+        app.ports.storeData.subscribe(function(data) {
+            if (data.length > 0) {
+                var dataJson = JSON.stringify(data);
+                localStorage.setItem("data", dataJson);
+            }
+        });
+
+        var requestAnimationFrame =
+            window.requestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.msRequestAnimationFrame;
+
+        let updateChart = function(spec) {
+            // console.log(spec);
+            requestAnimationFrame(function() {
+                vegaEmbed("#case-count-chart", spec, {
+                    actions: {
+                        export: true,
+                        source: false,
+                        compiled: false,
+                        editor: false
+                    },
+                    renderer: "canvas"
+                }).catch(
+                    console.warn
+                );
+            });
+        };
+
+        app.ports.sendToVegaLite.subscribe(updateChart);
+    </script>
+</body>
+
+</html>
