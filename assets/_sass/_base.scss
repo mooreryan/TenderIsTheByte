@@ -21,15 +21,34 @@ body {
   }
 }
 
-
 blockquote {
   color: $gray;
   border-left: 4px solid $primary-color;
   padding-left: 1em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Oxygen", sans-serif;
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $primary-color-darker;
+    text-decoration: underline;
+  }
+
+  a:active {
+    color: $primary-color-darker;
+    text-decoration: underline;
+  }
 }
 
 h3 {
@@ -67,7 +86,8 @@ a:active {
   color: $gray;
 }
 
-ol, ul {
+ol,
+ul {
   display: block;
   padding-left: 1em;
   margin-block-start: 1em;
@@ -78,7 +98,7 @@ ol, ul {
   li {
     margin-bottom: 0rem;
   }
-} 
+}
 
 ul {
   list-style: disc outside;

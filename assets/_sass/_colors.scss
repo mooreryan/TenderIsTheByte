@@ -1,12 +1,13 @@
 $black: #222;
 $gray: #7e7e7e;
 
-$primary-color: #E47320;
-$primary-color-darker: #B6550D;
+// TODO swap the link color to "darker" as the contrast is better.
+$primary-color: #e47320;
+$primary-color-darker: #b6550d;
 $primary-color-transparent: rgba(214, 103, 24, 0.05);
 
 $secondary-color: #ecd6e6;
 $secondary-color-darker: #baa5b4;
-$secondary-color-dark: #BE76AA;
-$secondary-color-robust: #BD74A8;
-$secondary-color-transparent: rgba(236,214,230,0.25);
+$secondary-color-dark: #be76aa;
+$secondary-color-robust: #bd74a8;
+$secondary-color-transparent: rgba(236, 214, 230, 0.25);
