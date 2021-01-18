@@ -5,7 +5,7 @@ author: ryan
 description: DivNet is an R package for estimating diversity when taxa occur in an ecological network.  Here I talk about why you may want to use DivNet, introduce my Rust implementation of the algorithm, and compare its performance to the original R package.
 categories: blog
 image: "/assets/img/posts/divnet_rs_intro/timing_425_350.png"
-twitter_share: https://ctt.ac/r23i1
+twitter_share: https://ctt.ac/7l2c2
 ---
 
 ## Background
