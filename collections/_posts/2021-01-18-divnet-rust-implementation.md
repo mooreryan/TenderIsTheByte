@@ -8,6 +8,8 @@ image: "/assets/img/posts/divnet_rs_intro/timing_425_350.png"
 twitter_share: https://ctt.ac/7l2c2
 ---
 
+_Update 2021-01-19: As of `divnet-rs` [v0.2.0](https://github.com/mooreryan/divnet-rs/releases/tag/v0.2.0), users can manually set the random seed. Also, `v0.2.0` uses only about 2/3 the memory that was used by [v0.1.1](https://github.com/mooreryan/divnet-rs/releases/tag/v0.1.1)._
+
 ## Background
 
 One reason for doing microbiome sequencing is to learn about the microbial diversity of the ecosystems of interest. Estimating the diveristy of microbial communities is hard. Essentially every step of a sample to sequence pipeline [introduces biases](https://doi.org/10.7554/eLife.46923) into your analyses, meaning the community composition you observe is likely quite different from the true community composition. Further, [microbiome datasets are compositional](https://doi.org/10.3389/fmicb.2017.02224), and must be treated with [statistical and computational methods](https://doi.org/10.1093/gigascience/giz107) designed to handle such data.
