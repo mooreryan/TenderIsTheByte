@@ -14,6 +14,24 @@ Something I think is pretty fun is to try and recreate ggplot2 style figures usi
 
 With that, let's try and recreate a figure using the "classic" ggplot2 theme: [theme_classic](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 
+{::options parse_block_html="true" /}
+
+<div class="post-toc">
+
+{:.post-toc--header}
+#### Contents
+
+- [Set up](#set-up)
+- [Fixing the axes](#fixing-the-axes)
+- [Fixing the points](#fixing-the-points)
+- [Adding a legend](#adding-a-legend)
+- [Some final touchups](#some-final-touchups)
+- [Wrap up](#wrap-up)
+
+</div>
+
+{::options parse_block_html="false" /}
+
 ## Set up
 
 First, here is some "set up" code where we create some data and set some variables to hold colors and stuff like that.
@@ -223,7 +241,7 @@ axis(side = 2, lwd = 0, lwd.ticks = 2, las = 2)
 
 That's better!
 
-## Fix the points
+## Fixing the points
 
 Now that the axes are looking pretty good, let's move on to the
 points.  To change the type of point that is plotted, you use the
