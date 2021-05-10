@@ -8,6 +8,8 @@ image: "/assets/img/posts/computational_lab_notebooks/git_log.png"
 twitter_share: https://ctt.ac/fcl_L
 ---
 
+_Last update: 2021-05-10_
+
 _Disclaimer: if you need a lab notebook for legal records, copyright,
 patent rights, or anything like that, then you need to do some
 research.  This post is **not** providing any recommendations for
@@ -92,6 +94,12 @@ software development.
 
 {% include post_img_border.html path='computational_lab_notebooks/git_logo.png' caption="git -- a distributed version control system" %}
 
+*Note: If you have never used git before, the [official
+docs](https://git-scm.com/doc) have a lot of info that may be of use
+to you.  I have also written a [small git
+tutorial](https://mooreryan.github.io/computational_lab_notebooks/git/)
+that you may find useful!*
+
 While I had used git while working on software, I had never tried
 using it to manage a computational lab notebook.  One reason is that
 it [doesn't handle large files
@@ -111,11 +119,13 @@ want to know more.)
 
 ## A git-based lab notebook
 
-*Note: If you have never used git before, the [official
-docs](https://git-scm.com/doc) have a lot of info that may be of use
-to you.  I have also written a [small git
-tutorial](https://mooreryan.github.io/computational_lab_notebooks/git/)
-that you may find useful!*
+*Note: I'm not the first one to think of using git to help manage a
+computational lab notebook.  In fact, you can find some interesting
+discussion on whether version control is even useful for lab notebooks
+[here](http://ivory.idyll.org/blog/is-version-control-an-electronic-lab-notebook.html),
+[here](https://kbroman.org/blog/2013/08/20/electronic-lab-notebook/),
+and
+[here](https://yossadh.github.io/posts/2018/12/lab-notebook-part-2/).*
 
 Using git and git-annex, I figured that I could get a pretty decent
 workflow going for my computational lab notebook.  After playing
@@ -267,7 +277,7 @@ $ cln run -dry-run
 ~~~ It's contents are:
 ~~~
 printf "I like apple pie\n" > msg.txt
-  
+
 ~~~
 ~~~ If that looks good, you can run the action:
 ~~~   $ cln run
@@ -334,13 +344,13 @@ The template file will look something like this:
 {% highlight text %}
 {% raw %}
 PUT COMMIT MSG HERE.
-  
+
 == Details ==
 PUT DETAILS HERE.
-  
+
 == Command(s) ==
 printf "I like apple pie\n" > msg.txt
-  
+
 == Action file ==
 action__REDACTED.sh
 {% endraw %}
@@ -414,16 +424,16 @@ Author: Ryan Moore <moorer@udel.edu>
 Date:   ....
 
     Created the msg.txt file
-    
+
     == Details ==
     I needed to create a file that describes something that I like.  I
     used the `printf` rather than `echo` because it is more portable.
     (See https://stackoverflow.com/a/11530298 for a discussion of this on
     stack overflow).
-    
+
     == Command(s) ==
     printf "I like apple pie\n" > msg.txt
-    
+
     == Action file ==
     action__467354640__.....sh
 ---
