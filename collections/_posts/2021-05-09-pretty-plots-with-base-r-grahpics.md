@@ -4,7 +4,7 @@ title: "Styling plots in base R graphics to match ggplot2 classic theme"
 author: ryan
 description: The ggplot2 package makes some really nice looking plots.  In this post, we give a step-by-step guide to styling plots, including moving the legend outside the plotting area, to match the ggplot2 classic theme using base R graphics.
 categories: blog
-image: "/pretty_plots_in_base_r/base_box_lb_axes_adjusted_3_fix_points_legend_5.png"
+image: "/assets/img/posts/pretty_plots_in_base_r/base_box_lb_axes_adjusted_3_fix_points_legend_5.png"
 twitter_share: https://ctt.ac/HF8CR
 ---
 
