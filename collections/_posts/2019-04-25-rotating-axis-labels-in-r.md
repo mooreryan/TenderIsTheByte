@@ -5,9 +5,8 @@ author: ryan
 description: A detailed look at how to rotate axis labels in base R plots.
 categories: blog
 image: "/assets/img/posts/r_axis_label_rotation/boxplot_final.png"
+last_updated: 2021-05-10
 ---
-
-_Last update: 2021-05-10_
 
 _If you want to learn more about styling plots with base R graphics, check out my [step-by-step guide to matching the ggplot2 classic theme using base R](https://www.tenderisthebyte.com/blog/2021/05/09/pretty-plots-with-base-r-grahpics/)._
 

@@ -6,9 +6,8 @@ description: Managing a computational lab notebook is tricky.  Here I discuss a 
 categories: blog
 image: "/assets/img/posts/computational_lab_notebooks/git_log.png"
 twitter_share: https://ctt.ac/fcl_L
+last_updated: 2021-05-10
 ---
-
-_Last update: 2021-05-10_
 
 _Disclaimer: if you need a lab notebook for legal records, copyright,
 patent rights, or anything like that, then you need to do some

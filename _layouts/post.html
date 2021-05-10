@@ -5,10 +5,16 @@ layout: default
     <header>
         <h1 class="post-title">{{ page.title | escape }}</h1>
 
-        <p>
-            <time class="post-date">
+        <p class="post-date">
+            <time>
                 {{ page.date | date: "%b %e, %Y" }}
             </time>
+	    {% if page.last_updated %}
+	    | Updated:
+	    <time>
+	      {{ page.last_updated | date: "%b %e, %Y" }}
+	    </time>
+	    {% endif %}
         </p>
 
         {% if page.author %}
