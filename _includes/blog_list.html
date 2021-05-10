@@ -3,6 +3,13 @@
 
 {% for post in site.posts %}
 <div class="post-preview">
+  {% if post.image %}
+  <a href="{{ post.url | relative_url }}">
+    <figure class="figure figure--center figure--border">
+      <img src="{{ post.image | relative_url }}">
+    </figure>
+  </a>
+  {% endif %}
   <h3 class="post-link">
     <a href="{{ post.url | relative_url }}">
       {{ post.title | escape }}
@@ -21,6 +28,7 @@
   <p>{{ post.description }}</p>
   {% endif %}
 </div>
+<hr width="10%">
 {% endfor %}
 
 {% else %}
