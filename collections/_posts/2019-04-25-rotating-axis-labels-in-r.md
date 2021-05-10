@@ -6,6 +6,11 @@ description: A detailed look at how to rotate axis labels in base R plots.
 categories: blog
 image: "/assets/img/posts/r_axis_label_rotation/boxplot_final.png"
 ---
+
+_Last update: 2021-05-10_
+
+_If you want to learn more about styling plots with base R graphics, check out my [step-by-step guide to matching the ggplot2 classic theme using base R](https://www.tenderisthebyte.com/blog/2021/05/09/pretty-plots-with-base-r-grahpics/)._
+
 Sometimes you have a plot with axis labels that are too long and end up getting clipped or dropped from the figure.  Maybe something like this:
 
 {% highlight r %}
@@ -114,7 +119,7 @@ This is the easy part.  Since our data is in a list, we can use the `names` func
 {% highlight r %}
 {% raw %}
 > names(dat)
-[1] "Cool dataset one"   "Cool dataset two"   "Another long name" 
+[1] "Cool dataset one"   "Cool dataset two"   "Another long name"
 [4] "Really really long"
 {% endraw %}
 {% endhighlight %}
@@ -312,3 +317,5 @@ To summarize, if you want to add rotation to axis labels in base R plots, you ne
 4. Adjust positioning and rotation
 
 That's it!  If you are interested, you can find all the R code and bash scripts used to generate the figures and gifs [on GitHub](https://github.com/mooreryan/rotating_axis_labels_in_r).
+
+If you want to learn more about making beautiful plots with base R graphics, check out my [step-by-step guide to matching ggplot2 classic theme in base R](https://www.tenderisthebyte.com/blog/2021/05/09/pretty-plots-with-base-r-grahpics/).
