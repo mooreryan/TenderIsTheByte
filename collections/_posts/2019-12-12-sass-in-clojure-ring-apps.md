@@ -4,7 +4,7 @@ title: "Using Sass in Clojure Ring apps"
 author: ryan
 description: So you want to use Sass instead of plain CSS in your Clojure Ring web app, but you're not sure how to get it set up?  No problem!  Let's walk through it together.
 categories: blog
-image: "/assets/img/posts/sass_clojure_ring_apps/sass-plus-clojure.png"
+image: "/assets/img/posts/sass_clojure_ring_apps/sass-plus-clojure-672-med.jpg"
 twitter_share: https://ctt.ac/BN2ke
 ---
 
@@ -137,7 +137,7 @@ Now, edit the `sassy-clj.core` namespace found in `src/sassy_clj/core.clj` like 
 
 This will let us use the `site-defaults`, which [among other things](https://github.com/ring-clojure/ring-defaults#customizing), will allow serving static assets in the `resources/public` folder.  Also, we want to use Ring's response helpers.
 
-Next, set up a basic `handler` function to [respond](https://github.com/ring-clojure/ring/wiki/Concepts#responses) to [requests](https://github.com/ring-clojure/ring/wiki/Concepts#requests).  
+Next, set up a basic `handler` function to [respond](https://github.com/ring-clojure/ring/wiki/Concepts#responses) to [requests](https://github.com/ring-clojure/ring/wiki/Concepts#requests).
 
 {% highlight clj %}
 {% raw %}

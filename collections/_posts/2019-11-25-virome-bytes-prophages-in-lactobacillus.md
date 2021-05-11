@@ -4,7 +4,7 @@ title: "Virome Bytes:  Prophages in Lactobacillus"
 author: ryan
 description: In today's edition of Virome Bytes, I talk about a couple of new papers looking at prophages in Lactobacillus!
 categories: blog
-image: "/assets/img/posts/lactobacillus_prophages/morphotype_3_phages.jpeg"
+image: "/assets/img/posts/lactobacillus_prophages/morphotype_3_phages_672_low.jpg"
 twitter_share: https://ctt.ac/0bc4o
 ---
 
@@ -26,9 +26,9 @@ The main points of this paper go something like this:
 * They built and extensively tested a sweet experimental system around *L. reuteri* 6475, including a derivative lacking both phages, a sensitive host, single phage deletions, and more.
 * They used this system to test some hypotheses about the affect of prophages on host fitness in the gut environment.
 
-They used this system to show that prophages reduce the fitness of *L. reuteri* during gastrointestinal transit, and did some fancy work to show that phages were actually produced during GI transit in an [SOS](https://doi.org/10.1016/s0300-9084(85)80077-8)-dependent manner.  Even though the propahges were found to reduce host fitness in the GI tract, the authors found that biologically active prophages are widely distributed among phylogenetically diverse strains of of *L. reuteri*.  
+They used this system to show that prophages reduce the fitness of *L. reuteri* during gastrointestinal transit, and did some fancy work to show that phages were actually produced during GI transit in an [SOS](https://doi.org/10.1016/s0300-9084(85)80077-8)-dependent manner.  Even though the propahges were found to reduce host fitness in the GI tract, the authors found that biologically active prophages are widely distributed among phylogenetically diverse strains of of *L. reuteri*.
 
-If you stop to think about it, that's a little weird.  Why are all these *L. reuteri* strains, across multiple lineages, maintaining prophages over evolutionary time scale if the prophages are reducing their host's fitness?  The authors figured that production of phages by lysogenized *L. reuteri* strains may provide a competitive advantage by killing competitor strains.  So they used their experimental system and did a whole bunch of competition experiments in germ-free mice.  To make a long story short, the *L. reuteri* strains with the prophages beat out the strains without them.  In other words, the prophage carrying *L. reuteri* strains had a competive advantage over the others *in vivo*, presumably because the non-lysogenized strains were susceptible to the phages produced by the lysogenized strains.  
+If you stop to think about it, that's a little weird.  Why are all these *L. reuteri* strains, across multiple lineages, maintaining prophages over evolutionary time scale if the prophages are reducing their host's fitness?  The authors figured that production of phages by lysogenized *L. reuteri* strains may provide a competitive advantage by killing competitor strains.  So they used their experimental system and did a whole bunch of competition experiments in germ-free mice.  To make a long story short, the *L. reuteri* strains with the prophages beat out the strains without them.  In other words, the prophage carrying *L. reuteri* strains had a competive advantage over the others *in vivo*, presumably because the non-lysogenized strains were susceptible to the phages produced by the lysogenized strains.
 
 This competiteve advantage is one potential explanation for the widespread distribution of prophages found in gut bacteria.  While the lysogenized *L. reuteri* strains outcompeted non-lysogenized strains susceptible to their phages, there was still a decrease in overall fitness of the lysogenized strains.  Such fitness trade-offs (as mentioned in the title!) may help to explain the co-existance of closely related lysogenized and non-lysogenized strains.
 

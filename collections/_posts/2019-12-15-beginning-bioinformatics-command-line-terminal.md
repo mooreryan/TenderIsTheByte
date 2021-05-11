@@ -4,7 +4,7 @@ title: "Beginning Bioinformatics:  What's a terminal?  What's the command line?"
 author: ryan
 description: If you're new to bioinformatics and just getting started, you're going to need to learn a lot of background info before you can really get started analyzing your data.  In this post, we go back to the basics talking about terminals and the command line.
 categories: blog
-image: "/assets/img/posts/command_line_terminal/find-cli.png"
+image: "/assets/img/posts/command_line_terminal/find-cli-672-med.jpg"
 twitter_share: https://ctt.ac/3xrBO
 ---
 
@@ -16,7 +16,7 @@ Let's start by talking about terminals and the command line.
 
 ## Graphical vs. command line interfaces
 
-You're probably reading this blog in a web-browser.  Whether it's on a phone or on a laptop, your web-browser is a [graphical user interface](https://en.wikipedia.org/wiki/Graphical_user_interface) (GUI).  We interact with GUIs by clicking around with the mouse, or if we're using a mobile device, by tapping and swiping on the screen.  Most of the programs we use on our phones and computers are GUIs.  Finder on a Mac and Windows Explorer (or File Explorer) on a PC are GUIs that let you browse and manage files on your computer.  Chrome, Safari, and Internet Explorer are GUIs for browsing the web.  So a GUI is a program with a graphical user interface, and make up the majority of the programs you probably use on a daily basis.  
+You're probably reading this blog in a web-browser.  Whether it's on a phone or on a laptop, your web-browser is a [graphical user interface](https://en.wikipedia.org/wiki/Graphical_user_interface) (GUI).  We interact with GUIs by clicking around with the mouse, or if we're using a mobile device, by tapping and swiping on the screen.  Most of the programs we use on our phones and computers are GUIs.  Finder on a Mac and Windows Explorer (or File Explorer) on a PC are GUIs that let you browse and manage files on your computer.  Chrome, Safari, and Internet Explorer are GUIs for browsing the web.  So a GUI is a program with a graphical user interface, and make up the majority of the programs you probably use on a daily basis.
 
 {% include post_img_border.html path='command_line_terminal/firefox-gui.png' caption='Firefox is a GUI for web browsing' %}
 
@@ -56,6 +56,6 @@ If you're on a Mac, you should have a program called `Terminal` already installe
 
 ## Wrap up
 
-In this post, we talked about graphical user interfaces versus command line interfaces, what is a terminal, what is the command line and how to actually get a terminal for your computer.  This is all foundational stuff that you'll be getting a lot more experience with as you learn more about bioinformatics.  Hopefully, this guide helps clear up any confusion you may have had!  
+In this post, we talked about graphical user interfaces versus command line interfaces, what is a terminal, what is the command line and how to actually get a terminal for your computer.  This is all foundational stuff that you'll be getting a lot more experience with as you learn more about bioinformatics.  Hopefully, this guide helps clear up any confusion you may have had!
 
 *If you want some more hands-on info about command line basics, check out [this nice tutorial](https://tutorial.djangogirls.org/en/intro_to_command_line/) from Django Girls.*

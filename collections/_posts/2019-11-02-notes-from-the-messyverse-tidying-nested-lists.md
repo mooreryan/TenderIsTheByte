@@ -4,20 +4,20 @@ title: "Notes from the Messyverse:  How to tidy nested lists in R"
 author: ryan
 description: You've got nested lists in R.  In fact, you've got lists of nested lists, but ggplot wants data frames or tibbles.  Have no fear, this post will show you how to tidy up your nested lists by converting them to data frames!
 categories: blog
-image: "/assets/img/posts/tidying_nested_lists/emacs_watermelon_data_11.jpg"
+image: "/assets/img/posts/tidying_nested_lists/emacs_watermelon_data_11_low.jpg"
 twitter_share: https://ctt.ac/Q59Rg
 ---
 
 {:.gray}
 *You're a fairly recent convert to the Tidyverse, and you're still using an unholy amalgamation of [Tidy verbs](https://teachingr.com/content/the-5-verbs-of-dplyr/the-5-verbs-of-dplyr-article.html) and base R throughout your code.  What's more, you've got reams of legacy code that's not going to magically tidy itself up anytime soon.  Don't feel bad about you're heathen love of the [apply](https://www.guru99.com/r-apply-sapply-tapply.html) family (after all, even [Hadley](http://hadley.nz) says that [`map` is just a fancier version of `lapply`](https://adv-r.hadley.nz/functionals.html#map)).  Rather, embrace those old-school list of lists!  All your nice, modern [tibbles](https://tibble.tidyverse.org) are just a few short verbs away.*
 
-So you're walking down the hall to the office breakroom when you overhear a conversation some of your colleagues are having.  You're coming closer and things must be starting to get a little intense in there.  One of them starts to shout.  "[By Jove](https://en.wiktionary.org/wiki/by_Jove), it's [lists all the way down](https://en.wikipedia.org/wiki/Turtles_all_the_way_down#Notable_modern_allusions_or_variations)!"  By this time you're starting to hurry...are they really talking about...?  You fly around the corner and see a grad student with [Professor Gamgee](http://tolkiengateway.net/wiki/Gaffer_Gamgee) and his flowing [grey beard](https://www.urbandictionary.com/define.php?term=grey%20beard) huddled in front of an old [CRT](https://en.wikipedia.org/wiki/Cathode-ray_tube) workstation, with what looks like--*gasp*--an [Emacs](https://ess.r-project.org) [buffer](https://www.gnu.org/software/emacs/manual/html_node/emacs/Buffers.html) filled top to bottom with--no, wait is that a [JSON](http://www.json.org) file?--the biggest, most nested, list-of-lists you've ever seen! 
+So you're walking down the hall to the office breakroom when you overhear a conversation some of your colleagues are having.  You're coming closer and things must be starting to get a little intense in there.  One of them starts to shout.  "[By Jove](https://en.wiktionary.org/wiki/by_Jove), it's [lists all the way down](https://en.wikipedia.org/wiki/Turtles_all_the_way_down#Notable_modern_allusions_or_variations)!"  By this time you're starting to hurry...are they really talking about...?  You fly around the corner and see a grad student with [Professor Gamgee](http://tolkiengateway.net/wiki/Gaffer_Gamgee) and his flowing [grey beard](https://www.urbandictionary.com/define.php?term=grey%20beard) huddled in front of an old [CRT](https://en.wikipedia.org/wiki/Cathode-ray_tube) workstation, with what looks like--*gasp*--an [Emacs](https://ess.r-project.org) [buffer](https://www.gnu.org/software/emacs/manual/html_node/emacs/Buffers.html) filled top to bottom with--no, wait is that a [JSON](http://www.json.org) file?--the biggest, most nested, list-of-lists you've ever seen!
 
 "Oh good, you made it," one of them says.
 
 "Who, me?"
 
-"Yes, you're the one who makes all those pretty graphs right?  With something called the [ggplot](https://ggplot2.tidyverse.org/reference/ggplot.html)?"  
+"Yes, you're the one who makes all those pretty graphs right?  With something called the [ggplot](https://ggplot2.tidyverse.org/reference/ggplot.html)?"
 
 You cough, "Maybe a little."
 
@@ -49,11 +49,11 @@ First things first, you get rid of all those upcased variable names.  A few quic
     ),
     C2 = list(
       group = "Control",
-      weight = 8      
+      weight = 8
     ),
     T1 = list(
       group = "Treatment",
-      weight = 15     
+      weight = 15
     ),
     T2 = list(
       group = "Treatment",
@@ -111,18 +111,18 @@ Being a lover of all things [Tidy](https://tidyverse.tidyverse.org/articles/mani
 > experiment_a %>% as_tibble
 
 # A tibble: 2 x 4
-  C1        C2        T1        T2       
-  <list>    <list>    <list>    <list>   
+  C1        C2        T1        T2
+  <list>    <list>    <list>    <list>
 1 <chr [1]> <chr [1]> <chr [1]> <chr [1]>
 2 <dbl [1]> <dbl [1]> <dbl [1]> <dbl [1]>
 {% endraw %}
 {% endhighlight %}
 
-Hmm, that's not quite what you want--it looks like there is a column for each list.  You seem to remember a function for applying other functions to elements of vectors.  Ah yes, it's called `map` from the [purrr](https://purrr.tidyverse.org) package.  But wait, you think, I have lists not vectors, and the title of the [help page](https://purrr.tidyverse.org/reference/map.html) is clear:  
+Hmm, that's not quite what you want--it looks like there is a column for each list.  You seem to remember a function for applying other functions to elements of vectors.  Ah yes, it's called `map` from the [purrr](https://purrr.tidyverse.org) package.  But wait, you think, I have lists not vectors, and the title of the [help page](https://purrr.tidyverse.org/reference/map.html) is clear:
 
 > Apply a function to each element of a vector
 
-It turns out that [lists](https://adv-r.hadley.nz/vectors-chap.html#lists) are just vectors.  (Try running `list() %>% is.vector`.)  Oh and look at that, there are special versions of map called `map_dfr` and `map_dfc` which return data frames by [row-binding and column-binding](https://dplyr.tidyverse.org/reference/bind.html) respectively.  
+It turns out that [lists](https://adv-r.hadley.nz/vectors-chap.html#lists) are just vectors.  (Try running `list() %>% is.vector`.)  Oh and look at that, there are special versions of map called `map_dfr` and `map_dfc` which return data frames by [row-binding and column-binding](https://dplyr.tidyverse.org/reference/bind.html) respectively.
 
 In general, `map` returns a vector the same length as its first argument (e.g., `map` returns a `list`, `map_int` returns an integer vector, and `map_dfr` returns a data frame by row binding.)  Since you want each of the nested lists to be a row in your data frame, you'll need `map_dfr`.  But what kind of function to you need to apply to each of the lists?  It turns out that you need a function that returns its argument as is, somthing like `function(l) l`.  You give that a try.
 
@@ -156,7 +156,7 @@ Hey that worked!  But writing that whole `function(l) l` seems kind of unnecessa
 {% endraw %}
 {% endhighlight %}
 
-Now, you could write `~ .` since it is just a single argument function, but [Hadley says](https://adv-r.hadley.nz/functionals.html) you should avoid this.  The `~ .x` thing looks kind of cool, but it is definitely a little obscure for someone who isn't too familiar with the Tidyverse.  
+Now, you could write `~ .` since it is just a single argument function, but [Hadley says](https://adv-r.hadley.nz/functionals.html) you should avoid this.  The `~ .x` thing looks kind of cool, but it is definitely a little obscure for someone who isn't too familiar with the Tidyverse.
 
 Just then, you remember that base R has a function called `identity`, which returns its argument as is.  [Identity functions](https://emilvarga.com/posts/2016/08/01/using-identity-functions) are much beloved by [functional programmers](https://en.wikipedia.org/wiki/Functional_programming) and [mathematicians](http://mathworld.wolfram.com/IdentityFunction.html) alike, and [Tidyverse feels pretty functional](https://tidyverse.tidyverse.org/articles/manifesto.html#embrace-functional-programming).  Not to mention that it's clearer to [be explicit](https://tidyverse.tidyverse.org/articles/manifesto.html#design-for-humans) about what you're doing rather than to use sweet syntax sugar.  So you adjust your code once more.
 
@@ -178,7 +178,7 @@ That's not too shabby.  But wait...isn't it kind of overkill to use `map_dfr` if
 
 > `map_dfr()` and `map_dfc()` return data frames created by row-binding and column-binding respectively.
 
-So if you're only passing in the identity function to `map_dfr`, then really you're just exploiting `map_dfr` for its ability to make data frames (or tibbles!) through row-binding.  In that case, couldn't you just use `bind_rows` directly?  
+So if you're only passing in the identity function to `map_dfr`, then really you're just exploiting `map_dfr` for its ability to make data frames (or tibbles!) through row-binding.  In that case, couldn't you just use `bind_rows` directly?
 
 {% highlight R %}
 {% raw %}
@@ -194,7 +194,7 @@ So if you're only passing in the identity function to `map_dfr`, then really you
 {% endraw %}
 {% endhighlight %}
 
-Yes!  [Now this is programming](https://knowyourmeme.com/memes/now-this-is-podracing)!  
+Yes!  [Now this is programming](https://knowyourmeme.com/memes/now-this-is-podracing)!
 
 {% include post_img_border.html path='tidying_nested_lists/now_this_is_programming.jpg' caption="Now this is <s>podracing</s> programming!" %}
 
@@ -234,24 +234,24 @@ Now, you're thinking that it would be a good idea to include the sample name and
 
 {% highlight R %}
 {% raw %}
-> experiment_a %>% 
+> experiment_a %>%
   # Convert the list to a tibble.
-  bind_rows %>% 
+  bind_rows %>%
   # Add in a column with sample names and experiment name.
   mutate(sample = names(experiment_a),
          experiment = "A")
 
 # A tibble: 4 x 4
   group     weight sample experiment
-  <chr>      <dbl> <chr>  <chr>     
-1 Control       10 C1     A         
-2 Control        8 C2     A         
-3 Treatment     15 T1     A         
-4 Treatment     14 T2     A                  
+  <chr>      <dbl> <chr>  <chr>
+1 Control       10 C1     A
+2 Control        8 C2     A
+3 Treatment     15 T1     A
+4 Treatment     14 T2     A
 {% endraw %}
 {% endhighlight %}
 
-While that's a good solution for a single expeiment, you remember that you've got a whole list of experiments.  Remember that `map` will return something that is the same size as your input, which will be the `experiments` list.  
+While that's a good solution for a single expeiment, you remember that you've got a whole list of experiments.  Remember that `map` will return something that is the same size as your input, which will be the `experiments` list.
 
 Now, that list contains three experiments, each of which is just like your `experiment_a` test case.  What you want to do is map that little pipeline that you used to convert `experiment_a` into a tibble onto each of the lists in `experiments`.  Sound good?  But first, you decide to encapsulate the process into a named function so it's easier to work with.
 
@@ -259,9 +259,9 @@ Now, that list contains three experiments, each of which is just like your `expe
 {% highlight R %}
 {% raw %}
 > experiment_to_tibble <- function(experiment, experiment_name) {
-  experiment %>% 
-    bind_rows %>% 
-    mutate(sample = names(experiment), 
+  experiment %>%
+    bind_rows %>%
+    mutate(sample = names(experiment),
            experiment = experiment_name)
 }
 {% endraw %}
@@ -285,19 +285,19 @@ Whoops, that's not quite right.  Back to the `map` [help page](https://purrr.tid
 
 # A tibble: 12 x 4
    group     weight sample experiment
-   <chr>      <dbl> <chr>  <chr>     
- 1 Control     10   C1     A         
- 2 Control      8   C2     A         
- 3 Treatment   15   T1     A         
- 4 Treatment   14   T2     A         
- 5 Control      8   C1     A         
- 6 Control      7   C2     A         
- 7 Treatment   15.2 T1     A         
- 8 Treatment   16   T2     A         
- 9 Control      8.5 C1     A         
-10 Control      9   C2     A         
-11 Treatment   13.6 T1     A         
-12 Treatment   15.2 T2     A         
+   <chr>      <dbl> <chr>  <chr>
+ 1 Control     10   C1     A
+ 2 Control      8   C2     A
+ 3 Treatment   15   T1     A
+ 4 Treatment   14   T2     A
+ 5 Control      8   C1     A
+ 6 Control      7   C2     A
+ 7 Treatment   15.2 T1     A
+ 8 Treatment   16   T2     A
+ 9 Control      8.5 C1     A
+10 Control      9   C2     A
+11 Treatment   13.6 T1     A
+12 Treatment   15.2 T2     A
 {% endraw %}
 {% endhighlight %}
 
@@ -323,19 +323,19 @@ The [purrr](https://purrr.tidyverse.org) package has a function for this:  `map2
 
 # A tibble: 12 x 4
    group     weight sample experiment
-   <chr>      <dbl> <chr>  <chr>     
- 1 Control     10   C1     A         
- 2 Control      8   C2     A         
- 3 Treatment   15   T1     A         
- 4 Treatment   14   T2     A         
- 5 Control      8   C1     B         
- 6 Control      7   C2     B         
- 7 Treatment   15.2 T1     B         
- 8 Treatment   16   T2     B         
- 9 Control      8.5 C1     C         
-10 Control      9   C2     C         
-11 Treatment   13.6 T1     C         
-12 Treatment   15.2 T2     C         
+   <chr>      <dbl> <chr>  <chr>
+ 1 Control     10   C1     A
+ 2 Control      8   C2     A
+ 3 Treatment   15   T1     A
+ 4 Treatment   14   T2     A
+ 5 Control      8   C1     B
+ 6 Control      7   C2     B
+ 7 Treatment   15.2 T1     B
+ 8 Treatment   16   T2     B
+ 9 Control      8.5 C1     C
+10 Control      9   C2     C
+11 Treatment   13.6 T1     C
+12 Treatment   15.2 T2     C
 {% endraw %}
 {% endhighlight %}
 
@@ -355,19 +355,19 @@ That's perfect for your use case.  In fact, that's exactly what you were doing, 
 
 # A tibble: 12 x 4
    group     weight sample experiment
-   <chr>      <dbl> <chr>  <chr>     
- 1 Control     10   C1     A         
- 2 Control      8   C2     A         
- 3 Treatment   15   T1     A         
- 4 Treatment   14   T2     A         
- 5 Control      8   C1     B         
- 6 Control      7   C2     B         
- 7 Treatment   15.2 T1     B         
- 8 Treatment   16   T2     B         
- 9 Control      8.5 C1     C         
-10 Control      9   C2     C         
-11 Treatment   13.6 T1     C         
-12 Treatment   15.2 T2     C         
+   <chr>      <dbl> <chr>  <chr>
+ 1 Control     10   C1     A
+ 2 Control      8   C2     A
+ 3 Treatment   15   T1     A
+ 4 Treatment   14   T2     A
+ 5 Control      8   C1     B
+ 6 Control      7   C2     B
+ 7 Treatment   15.2 T1     B
+ 8 Treatment   16   T2     B
+ 9 Control      8.5 C1     C
+10 Control      9   C2     C
+11 Treatment   13.6 T1     C
+12 Treatment   15.2 T2     C
 {% endraw %}
 {% endhighlight %}
 
@@ -375,14 +375,14 @@ Alright, [now you're cooking with Crisco](https://popculturekings.blog/2017/06/1
 
 {% highlight R %}
 {% raw %}
-> experiments %>% 
-  imap_dfr(experiment_to_tibble) %>% 
+> experiments %>%
+  imap_dfr(experiment_to_tibble) %>%
   ggplot(aes(x = experiment, y = weight, fill = group)) +
   scale_fill_manual(name = "Group", values = c("#E47320", "#BD74A8")) +
   geom_boxplot() +
   xlab("Experiment") +
   ylab("Weight") +
-  theme_bw() + 
+  theme_bw() +
   theme(panel.grid = element_blank(),
         panel.border = element_blank(),
         axis.line = element_line(colour = "#333333"))
@@ -391,6 +391,6 @@ Alright, [now you're cooking with Crisco](https://popculturekings.blog/2017/06/1
 
 {% include post_img_border.html path='tidying_nested_lists/experiment_box_plot.svg' caption="The Watermelon Plot" %}
 
-Phew!  That wasn't so bad, was it?  Right on cue, Professor Gamgee turns the corner into the breakroom and sits down at your table.  "How's the data looking, kid?"  
+Phew!  That wasn't so bad, was it?  Right on cue, Professor Gamgee turns the corner into the breakroom and sits down at your table.  "How's the data looking, kid?"
 
 "Tidy professor.  It's looking Tidy."

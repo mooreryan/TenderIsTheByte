@@ -4,7 +4,7 @@ title: "Computational lab notebooks using git and git-annex"
 author: ryan
 description: Managing a computational lab notebook is tricky.  Here I discuss a workflow and command line app for helping you to set up and manage your lab notebook with git and git-annex.
 categories: blog
-image: "/assets/img/posts/computational_lab_notebooks/git_log.png"
+image: "/assets/img/posts/computational_lab_notebooks/git_log_672_high.jpg"
 twitter_share: https://ctt.ac/fcl_L
 last_updated: 2021-05-10
 ---
