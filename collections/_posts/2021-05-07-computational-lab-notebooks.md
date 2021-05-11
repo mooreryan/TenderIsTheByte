@@ -6,7 +6,7 @@ description: Managing a computational lab notebook is tricky.  Here I discuss a 
 categories: blog
 image: "/assets/img/posts/computational_lab_notebooks/git_log_672_high.jpg"
 twitter_share: https://ctt.ac/fcl_L
-last_updated: 2021-05-10
+last_updated: 2021-05-11
 ---
 
 _Disclaimer: if you need a lab notebook for legal records, copyright,
@@ -30,6 +30,12 @@ that._
 </div>
 
 {::options parse_block_html="false" /}
+
+_**Too long; didn't read**: Check out the [cln
+app](https://github.com/mooreryan/computational_lab_notebooks) on
+GitHub.  It helps you manage a computational lab notebook using git
+and git-annex.  You can find the documentation
+[here](https://mooreryan.github.io/computational_lab_notebooks/)._
 
 ## Overview
 
