@@ -6,6 +6,7 @@ description: The ggplot2 package makes some really nice looking plots.  In this 
 categories: blog
 image: "/assets/img/posts/pretty_plots_in_base_r/base_box_lb_axes_adjusted_3_fix_points_legend_5.png"
 twitter_share: https://ctt.ac/HF8CR
+last_updated: 2021-05-20
 ---
 
 [ggplot2](https://ggplot2.tidyverse.org/) is an R package for creating graphics in a declarative way and is based on [The Grammar of Graphics](https://www.cs.uic.edu/~wilkinson/TheGrammarOfGraphics/GOG.html).  If you have never used ggplot2, it's a nice library for making publication ready figures with much less hassle than the base R graphics.
@@ -13,6 +14,8 @@ twitter_share: https://ctt.ac/HF8CR
 Something I think is pretty fun is to try and recreate ggplot2 style figures using base R graphics.  Sometimes, I look at the actual plotting code in the ggplot2 package, but I think it is more fun to just make a figure with ggplot and then try and get a reasonable match with base R.  Doing so, you really get an appreciation of the convencience of the ggplot2 package.
 
 With that, let's try and recreate a figure using the "classic" ggplot2 theme: [theme_classic](https://ggplot2.tidyverse.org/reference/ggtheme.html).
+
+*If you want to learn more about base R graphics, check out my [deep dive into rotating axis labels in base R plots](https://www.tenderisthebyte.com/blog/2019/04/25/rotating-axis-labels-in-r/).*
 
 {::options parse_block_html="true" /}
 
