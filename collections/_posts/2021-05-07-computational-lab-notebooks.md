@@ -6,7 +6,7 @@ description: Managing a computational lab notebook is tricky.  Here I discuss a 
 categories: blog
 image: "/assets/img/posts/computational_lab_notebooks/git_log_672_high.jpg"
 twitter_share: https://ctt.ac/fcl_L
-last_updated: 2021-05-11
+last_updated: 2021-05-22
 ---
 
 _Disclaimer: if you need a lab notebook for legal records, copyright,
@@ -89,7 +89,7 @@ their artifact files (`.qza` files) to [track things that were done in
 an
 analysis](https://docs.qiime2.org/2021.2/concepts/#data-files-qiime-2-artifacts).
 
-I like the idea of provenence tracking, but even if you do use QIIME,
+I like the idea of provenance tracking, but even if you do use QIIME,
 there are a lot of things you need to do outside of QIIME that will
 need tracking.  While not quite the same, this sort of provenance
 tracking reminds me a bit of using git or other version control
@@ -151,10 +151,10 @@ and why I did something would be tracked in the git repository along
 with the actual files and changes.
 
 That works pretty well, but you still run in to the issue of having to
-remeber what you ran, copy and paste it correctly into the commit
+remember what you ran, copy and paste it correctly into the commit
 message, blah blah blah.  In other words, it's still a bit of a pain.
 While you get the added benefits of git logs and history tracking, you
-have to do a lot of repetative, annoying stuff to get things to work.
+have to do a lot of repetitive, annoying stuff to get things to work.
 So, of course, I wrote a little program to help automate some of the
 tedious stuff!
 
@@ -335,8 +335,8 @@ size(s) of the file(s) that were created or changed, you can add them
 to the [git
 index](https://mooreryan.github.io/computational_lab_notebooks/git/#what-is-an-index)
 with either `git add` or `git-annex add`.  Finally, you commit the
-changes using the the git commit template that was made when you
-prepared the action.
+changes using the git commit template that was made when you prepared
+the action.
 
 {% highlight text %}
 {% raw %}
@@ -417,7 +417,7 @@ really powerful ways to track your analyses.
 
 For example, you can use the `git` cli app (e.g., `git whatchanged` or
 `git log`) or a GUI like [gitk](https://git-scm.com/docs/gitk/) to get
-detailed info about the provenence of any files in the repository.
+detailed info about the provenance of any files in the repository.
 You could run something like this to see all the history for the
 `msg.txt` file.
 
