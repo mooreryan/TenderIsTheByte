@@ -2,11 +2,11 @@
 layout: post
 title: "Computational lab notebooks using git and git-annex"
 author: ryan
-description: Managing a computational lab notebook is tricky.  Here I discuss a workflow and command line app for helping you to set up and manage your lab notebook with git and git-annex.
+description: Managing a computational lab notebook can be tricky.  Here I discuss a workflow and command line app for helping you to set up and manage your lab notebook with git and git-annex.
 categories: blog
 image: "/assets/img/posts/computational_lab_notebooks/git_log_672_high.jpg"
 twitter_share: https://ctt.ac/fcl_L
-last_updated: 2021-05-22
+last_updated: 2021-05-24
 ---
 
 _Disclaimer: if you need a lab notebook for legal records, copyright,
@@ -77,8 +77,8 @@ this, you end up needing to track a ton of things in an ad-hoc manner
 leading to a messy lab notebook that you need to come back to later
 and reorganize.
 
-In other words, you've got to manually track a lot of information, and
-it can be quite a challenge to keep it all straight!
+In other words, you need to manually track a lot of information, and
+it can be quite a challenge to keep track of everything!
 
 ## Provenance tracking
 
