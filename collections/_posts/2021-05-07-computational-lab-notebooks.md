@@ -10,9 +10,9 @@ last_updated: 2021-05-24
 ---
 
 _Disclaimer: if you need a lab notebook for legal records, copyright,
-patent rights, or anything like that, then you need to do some
-research.  This post is **not** providing any recommendations for
-that._
+patent rights, or anything like that, then this article probably isn't
+for you.  This post is **not** providing any recommendations for those
+cases._
 
 {::options parse_block_html="true" /}
 
