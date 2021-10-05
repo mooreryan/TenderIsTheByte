@@ -156,6 +156,32 @@ Re2.find_all_exn re "apple pie is made from apples";;
 {% endraw %}
 {% endhighlight %}
 
+#### Submatches and capturing groups
+
+You can use the `sub` argument to return submatches defined by capturing groups rather than the whole match.
+
+{% highlight OCaml %}
+{% raw %}
+let re = Re2.create_exn "a([bc])" in
+let s = "ab ac ab" in
+Re2.find_all_exn ~sub:(` Index 1) re s;;
+- : string list = ["b"; "c"; "b"]
+{% endraw %}
+{% endhighlight %}
+
+Be aware that passing index greater than the amount of capturing groups will raise an error. 
+
+{% highlight OCaml %}
+{% raw %}
+let re = Re2.create_exn "a([bc])" in
+let s = "ab ac ab" in
+Re2.find_all_exn ~sub:(` Index 10) re s;;
+Exception: Re2__Regex.Exceptions.Regex_no_such_subpattern(10, 2).
+{% endraw %}
+{% endhighlight %}
+
+#### Or_error returning vs. Exception raising
+
 Like most of the functions in the `Re2` module, the `find` functions come in both `Or_error.t` returning and exception raising versions.  If the regular expression doesn't match, `find_all` returns a `Result.Error.t` whereas `find_all_exn` raises an exception.
 
 {% highlight OCaml %}
@@ -173,7 +199,7 @@ Exception: Re2__Regex.Exceptions.Regex_match_failed("apple").
 {% endraw %}
 {% endhighlight %}
 
-It is important to rember that the `find_all` functions return *non-overlapping* matches.
+It is important to remember that the `find_all` functions return *non-overlapping* matches.
 
 {% highlight OCaml %}
 {% raw %}
@@ -185,7 +211,7 @@ Re2.find_all_exn re "ababa";;
 
 ## Finding submatches
 
-You will often want to use the simpler interface of `find_submatches` or `find_submatches_exn`.  These return the first match in the query string.  The match is returned as a `string option array`, where the first element is the whole match, and subsequent elements are submatches as defined by any capturing groups.   
+If you need a bit more control than provided by `find_all` with the `sub` argument (e.g., `` find_all ~sub:(` Index 1) ``), the you may need to use `find_submatches` or `find_submatches_exn`.  These return the first match in the query string.  The match is returned as a `string option array`, where the first element is the whole match, and subsequent elements are submatches as defined by any capturing groups.   
 
 {% highlight OCaml %}
 {% raw %}
@@ -204,10 +230,10 @@ This little code snippet will hopefully give you an idea of what's going on.
 let re = Re2.create_exn "a([bc])([de])" in
 let match_ = Re2.first_match_exn re "abdace" in
 [|
-  Re2.Match.get match_ ~sub:(`Index 0);
-  Re2.Match.get match_ ~sub:(`Index 1);
-  Re2.Match.get match_ ~sub:(`Index 2);
-  Re2.Match.get match_ ~sub:(`Index 3);
+  Re2.Match.get match_ ~sub:(` Index 0);
+  Re2.Match.get match_ ~sub:(` Index 1);
+  Re2.Match.get match_ ~sub:(` Index 2);
+  Re2.Match.get match_ ~sub:(` Index 3);
 |]
 ;;
 - : string option array = [| Some "abd"; Some "b"; Some "d"; None |]
@@ -220,7 +246,7 @@ If the `Index` you pass to `~sub` is higher than the of capturing groups plus on
 
 If you want to work with the `Re2.Match.t` directly, you can use functions from the [complicated interface](https://ocaml.janestreet.com/ocaml-core/latest/doc/re2/Re2/index.html#complicated-interface) like [first_match](https://ocaml.janestreet.com/ocaml-core/latest/doc/re2/Re2/index.html#val-first_match) and [get_matches](https://ocaml.janestreet.com/ocaml-core/latest/doc/re2/Re2/index.html#val-get_matches).
 
-If you need to work with submatches of every match in a string rather than just the first, you will want to use `get_matches` or `get_matches_exn`.  Let's try it out with a weird, little example.
+If you need to work with submatches of every match in a string rather than just the first, and you need direct access to the `Match.t`, you will want to use `get_matches` or `get_matches_exn`.  Let's try it out with a weird, little example.
 
 Say we have a string made up of chunks.  Each chunk is a number followed by an `A` (for add) or an `S` (for subtract) (e.g., `50A` and `3S`).  The chunk describes an arithmetic operation: `12A` means add 12 to the previous total; `3S` means subtract 3 from the previous total.  
 
@@ -239,9 +265,9 @@ let total =
   (* Fold over the matches to get the total. *)
   List.fold matches ~init:0 ~f:(fun total m ->
       (* The first capturing group is the "count". *)
-      let number = Int.of_string @@ Re2.Match.get_exn m ~sub:(`Index 1) in
+      let number = Int.of_string @@ Re2.Match.get_exn m ~sub:(` Index 1) in
       (* The second capturing group represents the operation. *)
-      match Re2.Match.get_exn m ~sub:(`Index 2) with
+      match Re2.Match.get_exn m ~sub:(` Index 2) with
       | "A" -> total + number
       | "S" -> total - number
       | _ -> assert false)
@@ -261,7 +287,7 @@ To select submatches, we use [id_t](https://ocaml.janestreet.com/ocaml-core/late
 
 {% highlight OCaml %}
 {% raw %}
-type id_t = [ `Index of int | `Name of string ]
+type id_t = [ ` Index of int | ` Name of string ]
 {% endraw %}
 {% endhighlight %}
 
@@ -273,8 +299,8 @@ In addition to referring to submatches/capturing groups by index, you can refer 
 {% raw %}
 let re = Re2.create_exn "a(?P<second_letter>[bc])" in
 let m = Re2.first_match_exn re "abc" in
-let x = Re2.Match.get_exn m ~sub:(`Name "second_letter") in
-let y = Re2.Match.get_exn m ~sub:(`Index 1) in
+let x = Re2.Match.get_exn m ~sub:(` Name "second_letter") in
+let y = Re2.Match.get_exn m ~sub:(` Index 1) in
 assert String.(x = y);;
 {% endraw %}
 {% endhighlight %}
@@ -294,10 +320,10 @@ You can get increasingly more information by increasing the `n` to the index.
 {% highlight OCaml %}
 {% raw %}
 (* Get only the whole match. *)
-~sub:(`Index 0)
+~sub:(` Index 0)
 
 (* Get the whole match and first submatch. *)
-~sub:(`Index 1)
+~sub:(` Index 1)
 {% endraw %}
 {% endhighlight %}
 
@@ -395,7 +421,7 @@ Here is a silly example that picks a different replacement value depending on th
 {% raw %}
 let re = Re2.create_exn "([ae])" in
 Re2.replace_exn re "apple peach" ~f:(fun m ->
-  match Re2.Match.get_exn m ~sub:(`Index 1) with
+  match Re2.Match.get_exn m ~sub:(` Index 1) with
   | "a" -> "u"
   | "e" -> "o"
   | _ -> assert false)
