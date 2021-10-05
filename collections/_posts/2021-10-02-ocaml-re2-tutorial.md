@@ -6,6 +6,7 @@ description: In this post, I give an introduction and guide to help you get star
 categories: blog
 image: "/assets/img/posts/ocaml_re2_tutorial/ocaml_regex.png"
 twitter_share: https://ctt.ac/OadcW
+last_updated: 2021-10-05
 ---
 
 In this tutorial, we will talk about [re2](https://github.com/janestreet/re2), an OCaml library providing bindings to [RE2](https://github.com/google/re2), Google's regular expression library.  
@@ -41,7 +42,9 @@ The there are few choices for regular expression libraries available for OCaml o
 * [pcre](https://opam.ocaml.org/packages/pcre), bindings to the Perl Compatibility Regular Expressions library ([PCRE](https://www.pcre.org/)), (installed 1115 times last month), and
 * [re2](https://opam.ocaml.org/packages/re2), OCaml bindings for RE2, Google's regular expression library (installed 114 times last month).
 
-The first two are by far the most popular in terms of raw Opam install counts.  However, `re2` integrates nicely into the Jane Street Base/Core/Async ecosystem (it's a Jane Street package after all!) and is covered under the MIT license rather than the [LGPL with OCaml linking exception](https://spdx.org/licenses/OCaml-LGPL-linking-exception.html), which may be appealing depending on your situation.
+The first two are by far the most popular in terms of raw Opam install counts.  However, `re2` integrates nicely into the Jane Street Base/Core/Async ecosystem (it's a Jane Street package after all!), and is covered under the MIT license rather than the [LGPL with OCaml linking exception](https://spdx.org/licenses/OCaml-LGPL-linking-exception.html), which may be appealing depending on your situation.
+
+*Note: According to this [blog post](https://blog.janestreet.com/what-the-interns-have-wrought-2020/) and this [GitHub issue](https://github.com/janestreet/re2/issues/26#issuecomment-395870146), Jane Street is phasing out its use of re2. The [re2 GitHub](https://github.com/janestreet/re2) does have recent commits, though, so your mileage may vary.*
 
 One issue that newcomers may face when getting started with the `re2` library is the slightly terse [API documentation](https://ocaml.janestreet.com/ocaml-core/latest/doc/re2/Re2/index.html).  While it is detailed and thorough, it can be hard to get started with if you're not already used to reading Jane Street `mli` files and source code.
 
