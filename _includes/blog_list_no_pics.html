@@ -1,0 +1,29 @@
+{% if site.posts.size > 0 %}
+<h2>Blog posts</h2>
+
+{% for post in site.posts %}
+<div class="post-preview">
+  <h3 class="post-link">
+    <a href="{{ post.url | relative_url }}">
+      {{ post.title | escape }}
+    </a>
+  </h3>
+  <small>
+    {{ post.date | date: "%b %e, %Y" }}
+    {% if post.last_updated %}
+    | Updated:
+    <time>
+      {{ post.last_updated | date: "%b %e, %Y" }}
+    </time>
+    {% endif %}
+  </small>
+  {% if post.description %}
+  <p>{{ post.description }}</p>
+  {% endif %}
+</div>
+<hr width="10%">
+{% endfor %}
+
+{% else %}
+<p> Check back later when I've written some posts! </p>
+{% endif %}
