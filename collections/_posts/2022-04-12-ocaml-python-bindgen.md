@@ -6,24 +6,34 @@ description: This post provides an introduction to using pyml_bindgen, a command
 categories: blog
 image: "/assets/img/posts/ocaml_python_bindgen/ocaml_pyml_bindgen.png"
 twitter_share: https://ctt.ac/rB09u
+last_updated: 2022-08-29
 ---
 
 `pyml_bindgen` is a command line app that generates Python bindings via [pyml](https://github.com/thierry-martinez/pyml) directly from OCaml value specifications.  While you could write `pyml` bindings by hand, it can get repetitive, especially if you are binding a decent sized Python library.
 
 In this post, I will introduce `pyml_bindgen` and go through a couple of common tasks.
 
+{::options parse_block_html="true" /}
+
+<div class="post-toc">
+
+{:.post-toc--header}
+#### Contents
+
+- [Install](#install)
+- [A simple example](#a-simple-example)
+- [Controlling the bindings](#controlling-the-bindings)
+- [Binding cyclic Python classes](#binding-cyclic-python-classes)
+- [Other stuff](#other-stuff)
+- [Wrap-up](#wrap-up)
+
+</div>
+
+{::options parse_block_html="false" /}
+
 ## Install
 
-To get started with `pyml_bindgen`, you will need to install it.  It is available on [opam](https://opam.ocaml.org/packages/pyml_bindgen/) (`opam install pyml_bindgen`).  However, to follow along with this blog, you will need to install from the main branch on GitHub.
-
-{% highlight ocaml %}
-{% raw %}
-$ git clone --depth 1 https://github.com/mooreryan/ocaml_python_bindgen.git
-$ opam install .
-{% endraw %}
-{% endhighlight %}
-
-_(As of Apr 12, 2022, you will need to install from the main branch rather than opam to follow along with this post.)_
+To get started with `pyml_bindgen`, you will need to install it.  It is available on [opam](https://opam.ocaml.org/packages/pyml_bindgen/) (`opam install pyml_bindgen`).
 
 ## A simple example
 
