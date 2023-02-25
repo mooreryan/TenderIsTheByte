@@ -15,3 +15,4 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "kramdown", ">= 2.3.1"
 gem "kramdown-parser-gfm"
+gem "addressable", "~> 2.8", ">= 2.8.1"
