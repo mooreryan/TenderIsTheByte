@@ -5,6 +5,7 @@ author: ryan
 description: MMseqs2, a program for searching and clustering proteins, requires a CPU with either AVX2 or SSE4.1 to run.  In this post, we walk through writing a script to automatically determine the instruction set on your computer and run the correct version of MMseqs2.
 categories: blog
 twitter_share: https://ctt.ac/AVJxt
+last_updated: 2023-02-24
 ---
 
 [MMseqs2](https://github.com/soedinglab/MMseqs2) is a software suite for searching and [clustering](https://doi.org/10.1038/s41467-018-04964-5) giant protein and nucleotide datasets.  It is [very fast while still being very sensitive](https://doi.org/10.1038/nbt.3988), and if you are using [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) for homology search, I definitely recommend giving MMseqs2 a try!
@@ -21,7 +22,7 @@ If you are running MMseqs2 locally, this is no problem.  You can [check](https:/
 
 The cluster uses [slurm](https://slurm.schedmd.com/documentation.html) for job scheduling, which means that I could figure out which nodes have AVX2 and which have SSE4.1 and then specify the allowed nodes in my slurm submission script (for example, using `--nodelist=node_name`) whenever I want to run MMseqs2.  I got tired of doing this pretty quickly, so I thought it would be nice to write a little shell script to automatically pick the correct version of MMseqs2 depending on the instruction set of the CPU.  It turns out that this is pretty easy to do.  Let's walk through it!
 
-*Note: Like my [last](http://localhost:4000/blog/2019/05/08/parsing-cli-args-with-structopt/) [two](http://localhost:4000/blog/2019/04/25/rotating-axis-labels-in-r/) posts, I'm going to go into a fair bit of detail so that it is accessible to beginners.  If you just want to see the final result, [skip down to the bottom](#wrapping-up).*
+*Note: Like my [last](https://www.tenderisthebyte.com/blog/2019/05/08/parsing-cli-args-with-structopt/) [two](https://www.tenderisthebyte.com/blog/2019/04/25/rotating-axis-labels-in-r/) posts, I'm going to go into a fair bit of detail so that it is accessible to beginners.  If you just want to see the final result, [skip down to the bottom](#wrapping-up).*
 
 ## Checking for instruction sets
 
@@ -66,7 +67,7 @@ Since `grep` returned a line with `SSE4.1` in it, I know that my laptop supports
 
 As I mentioned above, it's simple to pick an MMseqs2 binary for my own computer, but our computing cluster has some nodes with AVX2 and some with SSE4.1.  To deal with this, we will write a little shell script that determines which instruction set a computer has, and then runs the correct version of MMseqs2 for that instruction set.
 
-First, download both the SSE4.1 and the AVX2 versions of MMseqs2 [from the website](github.com/soedinglab/MMseqs2/releases/latest).  Then, put each of those in its own location.  For example, I have the AVX2 binary here
+First, download both the SSE4.1 and the AVX2 versions of MMseqs2 [from the website](https://github.com/soedinglab/MMseqs2/releases).  Then, put each of those in its own location.  For example, I have the AVX2 binary here
 
 {% highlight bash %}
 {% raw %}
