@@ -6,9 +6,13 @@ description: DivNet is an R package for estimating diversity when taxa occur in 
 categories: blog
 image: "/assets/img/posts/divnet_rs_intro/timing_425_350.png"
 twitter_share: https://ctt.ac/7l2c2
+last_updated: 2023-11-01
 ---
 
-_Update 2021-01-19: As of `divnet-rs` [v0.2.0](https://github.com/mooreryan/divnet-rs/releases/tag/v0.2.0), users can manually set the random seed. Also, `v0.2.0` uses only about 2/3 the memory that was used by [v0.1.1](https://github.com/mooreryan/divnet-rs/releases/tag/v0.1.1)._
+- _Update: divnet-rs now has a way to parallelize the bootstrapping procedure. With enough RAM, it can give [approximately linear decreases](https://github.com/mooreryan/divnet-rs/issues/4#issuecomment-955592257) in run time with increasing number of cores. Consider it an [experimental](https://github.com/mooreryan/divnet-rs/blob/main/CHANGELOG.md#unreleased) feature for now._
+- _Update 2022-04-06: On the [Lee dataset](https://doi.org/10.3389/fmicb.2015.01470), [v0.3.0](https://github.com/mooreryan/divnet-rs/releases/tag/v0.3.0) is around 3x faster and uses ~60% of the memory as compared to [v0.2.1](https://github.com/mooreryan/divnet-rs/releases/tag/v0.2.1)._
+- _Update 2021-01-22: [v0.2.1](https://github.com/mooreryan/divnet-rs/releases/tag/v0.2.1) further decreases the run time and required memory_
+- _Update 2021-01-19: As of `divnet-rs` [v0.2.0](https://github.com/mooreryan/divnet-rs/releases/tag/v0.2.0), users can manually set the random seed. Also, `v0.2.0` uses only about 2/3 the memory that was used by [v0.1.1](https://github.com/mooreryan/divnet-rs/releases/tag/v0.1.1)._
 
 ## Background
 
@@ -28,9 +32,9 @@ You can find a lot more information about DivNet, including algorithmic details,
 
 ### Why make divnet-rs?
 
-In the [getting started tutorial](https://github.com/adw96/DivNet/blob/31e04e29e4f3c02ea07c7f35873ee6743b79170a/vignettes/getting-started.Rmd), there is a section called "What does DivNet do that I can't do already?" (it is worth reading if you haven't!). So I thought it would be good to answer the question, "What does `divnet-rs` do that the R implementation of DivNet can't do aleady?" The answer is simple: `divnet-rs` gives you the ability to apply the DivNet algorithm to large datasets. For those without easy access to high performance computing facilities, you will be able to run DivNet on typically sized SSU rRNA microbiome datasets on your laptop. `divnet-rs` is both faster and much more memory efficent that the R implementation. Of course, bioinformatics software is all about tradeoffs and `divnet-rs` is no different. [Comapared to the R implementation](#differences-in-the-implementations), it's harder to install, you have to write some R code specifically to get data in and out of `divnet-rs`, and not all network and boostrapping options offered by the R implementation are available in the Rust implementation. That said, I think `divnet-rs` still fulfills a useful niche by allowing researchers to apply the DivNet algorithm to datasets that are currently too large for the R implementation to handle.
+In the [getting started tutorial](https://github.com/adw96/DivNet/blob/31e04e29e4f3c02ea07c7f35873ee6743b79170a/vignettes/getting-started.Rmd), there is a section called "What does DivNet do that I can't do already?" (it is worth reading if you haven't!). So I thought it would be good to answer the question, "What does `divnet-rs` do that the R implementation of DivNet can't do aleady?" The answer is simple: `divnet-rs` gives you the ability to apply the DivNet algorithm to large datasets. For those without easy access to high performance computing facilities, you will be able to run `divnet-rs` on typically sized SSU rRNA microbiome datasets on your laptop. `divnet-rs` is both faster and much more memory efficent that the R implementation. Of course, bioinformatics software is all about tradeoffs and `divnet-rs` is no different. [Comapared to the R implementation](#differences-in-the-implementations), it's harder to install, you have to write some R code specifically to get data in and out of `divnet-rs`, and not all network and boostrapping options offered by the R implementation are available in the Rust implementation. That said, I think `divnet-rs` still fulfills a useful niche by allowing researchers to apply the DivNet algorithm to datasets that are currently too large for the R implementation to handle.
 
-## Comparing runtime and memory usage
+## Comparing run time and memory usage
 
 ### Set up
 
@@ -38,7 +42,7 @@ While developing `divnet-rs`, I spent a good amount of time profiling and optimi
 
 So what did I do? First, I took the Lee data and sorted the ASV table in decreasing abundance order. Then I created new datasets from the top 10, 20, 40, 80, 160, 320, 640, and 1280 ASVs. In addition to the full 16 sample datasets, I also created test datasets with only eight samples by randomly picking samples from the ASV table, remiving any ASVs that had zero count in the remaining samples, and then took the top 10, 20, ..., 1280 ASVs just like for the 16 sample datasets. I ran everything with the default algorithm tuning in DivNet (6 expectation maximization (EM) iterations (3 burn), 500 Monte-Carlo (MC) iterations (250 burn)) and 2 replicates. I would probably use the "careful" setting (10 EM iterations and 1000 MC iterations) as well as running more replicates if I was actually analyzing data, but this was good enough for this little profiling experiment.
 
-This isn't the most scientific profiling job ever, but it should give you a sense of how the runtime and memory scales with the number of taxa and samples for both the R and Rust versions of DivNet. For the timing, I ran each dataset three times, and I used the `time` function to get the elapsed time and the max memory used for each run. Since loading all the R dependencies takes a large proportion of the total runtime in the smaller DivNet-R runs, I got the elapsed time of just the `divnet` function using the [tictoc](https://cran.r-project.org/web/packages/tictoc/index.html) R package. I still used `time` to get the max memory for these runs though.
+This isn't the most scientific profiling job ever, but it should give you a sense of how the run time and memory scales with the number of taxa and samples for both the R and Rust versions of DivNet. For the timing, I ran each dataset three times, and I used the `time` function to get the elapsed time and the max memory used for each run. Since loading all the R dependencies takes a large proportion of the total run time in the smaller DivNet-R runs, I got the elapsed time of just the `divnet` function using the [tictoc](https://cran.r-project.org/web/packages/tictoc/index.html) R package. I still used `time` to get the max memory for these runs though.
 
 One other thing to mention, I ran all of these on a compute cluster. I didn't think about it until after I had already run everthing, but I compiled both `divnet-rs` and `OpenBLAS` on a different node than the one that I used to actually run the tests. The compute cluster that I used has a bunch of different types of nodes, so the compiled output of both may not be ideal for the node I actually ran the timings on (e.g., different [SIMD instructions](https://en.wikipedia.org/wiki/SIMD), different CPU architectures, etc.). While the timing experiments were running, there were other jobs on the same node running at the same time, so that is another thing that may have influenced the results.
 
@@ -48,7 +52,7 @@ Just keep all this stuff in mind while taking a look at these results.
 
 ### Results
 
-Here are the runtime and memory profiling results:
+Here are the run time and memory profiling results:
 
 {% include post_img_border.html path='divnet_rs_intro/timing_425_350.svg' caption="DivNet timing and memory requirements" %}
 
