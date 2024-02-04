@@ -6,13 +6,12 @@ description: If you're new to bioinformatics and just getting started, you're go
 categories: blog
 image: "/assets/img/posts/command_line_terminal/find-cli-672-med.jpg"
 twitter_share: https://ctt.ac/3xrBO
+last_updated: 2024-02-04
 ---
 
-Earlier today, I was working on a blog post about how to install command line programs for bioinfomatics beginners.  As I was going through it, I realized that there is a lot of background information you need to know just to install a typical bioinformatics program!  Here are some examples:   What's the command line?  What's a terminal?  How to I change directories?  What is an archive file?  What does the `.tar.gz` thing at the end of the filename mean and how do I open this kind of file?  What do all these installation instructions keep telling me to type `make`?  Anyway, you get the point!  That's a lot of prerequisite knowledge just to get started with *installing* bioinformatics software.
+Installing and running typical bioinformatics programs requires a lot of background knowledge. For beginners, terms like "command line," "terminal," "changing directories," and "archive file" might be unfamiliar. Even instructions to type `make` can be confusing. There is a lot of prerequisite knowledge needed to get started with installing and using bioinformatics software.
 
-But what if you're a beginner?  I would guess that if you're a true beginner to bioinformatics, you probably don't know the answer to most those questions.  And that's okay!  Everyone is a beginner at some point.  You just need things explained at a basic level and lots of practice!
-
-Let's start by talking about terminals and the command line.
+So, let's start with the basics: terminals and the the command line.
 
 ## Graphical vs. command line interfaces
 
