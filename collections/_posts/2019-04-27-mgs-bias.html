@@ -1,0 +1,160 @@
+---
+layout: default
+title: Exploring Metagenomic Sequencing Measurement Bias
+description: Bias affects observed metagenomic sequencing (MGS) composition. Check out this app to learn more!
+categories: app
+image: "/assets/img/apps/mgs_bias_comp_charts.png"
+---
+
+<div>
+  <h1>Exploring Metagenomic Sequencing Measurement Bias</h1>
+
+  <h2>Background</h2>
+
+  <p>
+    Marker gene and metagenomic sequencing (MGS) measurements are biased, or as
+    a
+    <a
+      href="https://doi.org/10.1101/559831"
+      title="Consistent and correctable bias in metagenomic sequencing measurements"
+      >recent preprint</a
+    >
+    puts it
+  </p>
+
+  <blockquote>
+    <p>...the community compositions measured by MGS are wrong.</p>
+  </blockquote>
+
+  <p>
+    This is because each step of an MGS workflow preferentially detects certain
+    taxa (or genes) over others (<a
+      href="https://doi.org/10.1016/j.annepidem.2016.03.009"
+      >Brooks 2016</a
+    >,
+    <a href="https://doi.org/10.3389/fmicb.2017.01561"
+      >Hugerth and Andersson 2017</a
+    >, <a href="https://doi.org/10.1128/AEM.02627-17">Pollock et al. 2018</a>).
+  </p>
+
+  <p>
+    Luckily, there’s hope for MGS still! In the preprint that I referenced above
+    (<a
+      title="Consistent and correctable bias in metagenomic sequencing measurements"
+      href="https://doi.org/10.1101/559831"
+      >Consistent and correctable bias in metagenomic sequencing measurements</a
+    >), McLaren and friends explore a model of how bias affects MGS measurements
+    and what to do about it. Their model is nice and simple.
+  </p>
+
+  <blockquote>
+    <p>
+      Bias multiplies the true relative abundances within each sample by taxon-
+      and protocol-specific factors that describe the different efficiencies
+      with which taxa are detected by the workflow.
+    </p>
+  </blockquote>
+
+  <p>
+    Cool! So in this model, bias is multiplicative and each step in the protocol
+    has a bias multiplier for each individual taxa. Therefore, to get the
+    overall protocol bias for a particular OTU, you just multiply the bias
+    (detection efficiency) in each step of the protocol for that OTU.
+  </p>
+
+  <p>
+    The authors go into a lot of detail with suggestions and best practices to
+    handle these biases, but one that is particularly easy to implement is their
+    suggestion to use techniques based on taxon ratios (i.e., compositional
+    differences between samples) as they are less sensitive to bias than those
+    based on proportions. Or as they put it
+  </p>
+
+  <blockquote>
+    <p>The fold-change in taxon ratios between samples is invariant to bias.</p>
+  </blockquote>
+
+  <p>
+    If you want to switch to ratio based techniques, check out
+    <a href="https://dl.acm.org/citation.cfm?id=17272"
+      >&quot;The statistical analysis of compositional data&quot;</a
+    >
+    by Aitchison and
+    <a href="https://doi.org/10.3389/fmicb.2017.02224"
+      >&quot;Microbiome Datasets Are Compositional: And This Is Not
+      Optional&quot;</a
+    >, a nice review about using compositional techniques to analyze microbiome
+    data.
+  </p>
+
+  <p>
+    There is a LOT more cool stuff
+    <a
+      title="Consistent and correctable bias in metagenomic sequencing measurements"
+      href="https://doi.org/10.1101/559831"
+      >in the preprint</a
+    >
+    (and I’m probably oversimplifying things), so I encourage you to take a look
+    for more info!
+  </p>
+
+  <h2>Interactive app</h2>
+
+  <p>
+    To show how bias as modeled
+    <a
+      title="Consistent and correctable bias in metagenomic sequencing measurements"
+      href="https://doi.org/10.1101/559831"
+      >in the preprint</a
+    >
+    affects observed community compositions and analyses, I whipped up this
+    interactive app for you! (It's basically a interactive combination of
+    Figures 2 and 3 from the preprint.)
+  </p>
+
+  <p>
+    The actual counts and protocol bias tables are editable. To do so, just
+    click in one of the existing values and type in a new one! After changing a
+    value, pressing tab, enter/return, or clicking elsewhere on the page will
+    update the observed counts, bar charts, and sample distance calculations.
+  </p>
+
+  <p>
+    Play around with it and you can get a feel for the HUGE affect bias can have
+    on your observed measurements.
+  </p>
+
+  <p>
+    <i
+      >Note: The sample distance table calculates a couple of common
+      distance/dissimilarity stats used to compare samples (Euclidean,
+      Bray-Curtis, and Aitchison). Ideally, the distance/dissimilarity between
+      sample 1 and 2 should be the same for both the actual and observed rows,
+      but as you will see, it only holds for Aitchison distance! (If you guessed
+      that Aitchison distance uses taxa ratios, you were right. As it turns out,
+      Aitchison distance is a
+      <a
+        href="http://www.sediment.uni-goettingen.de/staff/tolosana/extra/CoDaNutshell.pdf"
+        >distance measure for compositional data</a
+      >).</i
+    >
+  </p>
+
+  <div>
+    <hr width="10%" />
+  </div>
+
+  <div id="mgs-bias-app"></div>
+
+  <div>
+    <hr width="10%" />
+
+    {% include call_to_action.html %}
+
+    <a href="/">← Go back</a>
+  </div>
+
+  <script src="/assets/js/mgs_bias_app.js"></script>
+  <link rel="stylesheet" href="{{ "/assets/css/mgs_bias_app.css" | relative_url
+  }}">
+</div>
