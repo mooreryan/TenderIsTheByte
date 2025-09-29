@@ -1,17 +1,32 @@
 <div class="row bio">
     <div class="two columns bio-pic">
         <picture>
-            <img height="100px" width="100px" alt="Profile pic"
-                src="{{ site.data.authors.[include.author].avatar | relative_path }}">
+            <img
+                height="100px"
+                width="100px"
+                alt="Profile pic"
+                src="{{ site.data.authors.[include.author].avatar | relative_path }}"
+            />
         </picture>
     </div>
 
     <div class="seven columns bio-text">
         <p>
-            Hi! I'm {{ site.data.authors.[include.author].name }}, {{ site.data.authors.[include.author].bio }}.
-            <a href="https://www.twitter.com/{{ site.data.authors.[include.author].twitter | cgi_escape | escape }}">Follow
-                me on Twitter!</a>
-        </p>
+            Hi! I'm {{ site.data.authors.[include.author].name }}, {{
+            site.data.authors.[include.author].bio }}.
+            {% if site.data.authors.[include.author].linkedin %}
+            <a
+                href="https://www.linkedin.com/in/{{ site.data.authors.[include.author].linkedin | cgi_escape | escape }}"
+                >Contact me on LinkedIn!</a
+            >
+            {% endif %}
+            {% if site.data.authors.[include.author].twitter %}
+            <a
+                href="https://www.twitter.com/{{ site.data.authors.[include.author].twitter | cgi_escape | escape }}"
+                >Follow me on Twitter!</a
+            >
+            {% endif %}
 
+        </p>
     </div>
 </div>

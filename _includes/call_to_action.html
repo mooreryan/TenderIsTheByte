@@ -4,22 +4,38 @@
     <a title="Share on Twitter!" href="{{ page.twitter_share }}">
         sharing it on Twitter
     </a>
+    or
+    <a title="Open LinkedIn" href="https://www.linkedin.com/">
+        LinkedIn
+    </a>
     and subscribing to the <a title="Subscribe to the RSS feed!" href="{{ "/feed.xml" | relative_url }}">RSS feed</a>!
     {% else %}
     If you enjoyed this post, consider sharing it on
-    <a title="Open my Twitter profile" href="https://twitter.com/{{ site.author.twitter | cgi_escape | escape }}">
+    <a title="Open Twitter" href="https://twitter.com/">
         Twitter
+    </a>
+    or
+    <a title="Open LinkedIn" href="https://www.linkedin.com/">
+        LinkedIn
     </a>
     and subscribing to the <a title="Subscribe to the RSS feed!" href="{{ "/feed.xml" | relative_url }}">RSS feed</a>!
     {% endif %}
 
+    {% if site.author.linkedin %}
     If you have questions or comments, you can find me on
-    <a title="Open my Twitter profile" href="https://twitter.com/{{ site.author.twitter | cgi_escape | escape }}">
-        Twitter
+    <a title="Open my LinkedIn profile" href="https://www.linkedin.com/in/{{ site.author.linkedin | cgi_escape | escape }}">
+        LinkedIn
     </a>
     or
     <a title="Send me an email!" href="mailto:{{ site.author.email | cgi_escape | escape }}">
         send me an email
     </a>
     directly.
+    {% else %}
+    If you have questions or comments,
+    <a title="Send me an email!" href="mailto:{{ site.author.email | cgi_escape | escape }}">
+        send me an email
+    </a>
+    !
+    {% endif %}
 </p>

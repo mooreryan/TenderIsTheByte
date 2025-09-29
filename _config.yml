@@ -22,6 +22,7 @@ author:
   github: mooreryan
   name: Ryan Moore
   email: moorer@udel.edu
+  linkedin: ryan-moore-a5bab5356
 twitter:
   username: TenderIsTheByte
   card: summary
@@ -32,7 +33,7 @@ social:
     - https://twitter.com/TenderIsTheByte
     - https://github.com/mooreryan
 
-copyright: © Ryan Moore, 2019-2020
+copyright: © Ryan M. Moore, 2019-2025
 baseurl: "" # the subpath of your site, e.g. /blog
 
 # Treat images as if they had image: true in the front matter
@@ -42,15 +43,12 @@ defaults:
     values:
       image: true
 
-
 # Build settings
 plugins:
   - jekyll-seo-tag
   - jekyll-feed
   - jekyll-sitemap
 markdown: kramdown
-
-
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
