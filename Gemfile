@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+ruby "3.4.6"
+
 gem "bundler", "~> 2.7.2"
 
 gem "jekyll", "~> 3.9"
@@ -11,7 +13,7 @@ group :jekyll_plugins do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "tzinfo-data", platforms: [:windows, :jruby]
 
 # Security patches
 
