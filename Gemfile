@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.4.6"
+ruby "3.4.4"
 
 gem "bundler", "~> 2.7"
 
