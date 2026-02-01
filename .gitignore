@@ -3,7 +3,6 @@ _site
 .sass-cache
 .jekyll-metadata
 build_exclude
-.ruby-*
 .DS_store
 .netlify
 *.idraw
