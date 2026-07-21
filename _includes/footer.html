@@ -1,30 +1,37 @@
 <footer>
-    <ul class="no-bullets">
-        <li class="nav_item">
-            <a class="nav_link"
-               href="https://github.com/{{ site.author.github | cgi_escape | escape }}"
-               title="Check out my projects on GitHub">
-                GitHub
-            </a>
-        </li>
-        <li>
-            <a class="nav_link"
-               href="https://www.linkedin.com/in/{{ site.author.linkedin | cgi_escape | escape }}"
-               title="Contact me on LinkedIn">
-                LinkedIn
-            </a>
-        </li>
-        <li class="nav_item">
-            <a class="nav_link"
-               href="mailto:{{ site.author.email | cgi_escape | escape }}"
-               title="Email me directly">Email</a></li>
-    </ul>
+  <ul class="no-bullets">
+    <li class="nav_item">
+      <a
+        class="nav_link"
+        href="https://github.com/{{ site.author.github | cgi_escape | escape }}"
+        title="Check out my projects on GitHub"
+      >
+        GitHub
+      </a>
+    </li>
+    <li>
+      <a
+        class="nav_link"
+        href="https://www.linkedin.com/in/{{ site.author.linkedin | cgi_escape | escape }}"
+        title="Contact me on LinkedIn"
+      >
+        LinkedIn
+      </a>
+    </li>
+    <li class="nav_item">
+      <a
+        class="nav_link"
+        href="mailto:{{ site.author.email | cgi_escape | escape }}"
+        title="Email me directly"
+        >Email</a
+      >
+    </li>
+  </ul>
 
-    <p>
-        {{ site.copyright }}. This work is licensed under a
-        <a rel="license"
-           href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License
-        </a>.
-    </p>
+  <p>
+    {{ site.copyright }}. This work is licensed under
+    <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"
+      >CC BY 4.0</a
+    >.
+  </p>
 </footer>
